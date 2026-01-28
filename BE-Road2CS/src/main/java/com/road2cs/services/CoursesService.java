@@ -33,7 +33,7 @@ public class CoursesService {
             Map.entry("COMP322-L", new Course("COMP 322/l", "Introduction to Operating Systems", 4)),
             Map.entry("PHIL230", new Course("PHIL 230", "Formal Logic", 4)),
             Map.entry("COMP482", new Course("COMP 482", "Algorithm Design and Analysis", 4)),
-            Map.entry("MATH482", new Course("MATH 482", "Combinatorial Algorithms", 4)),
+            Map.entry("MATH482", new Course("MATH 482", "Combinatonial Algorithms", 4)),
             Map.entry("MATH340", new Course("MATH 340", "Introduction to Probability and Statistics", 4)),
             Map.entry("COMS151", new Course("COMS 151", "Fundamentals of Public Speaking", 4)),
             Map.entry("ENG115", new Course("ENG 115", "Approaches to University Writing", 4)),
