@@ -27,7 +27,7 @@ public class CoursesService {
             Map.entry("COMP491-L", new Course("COMP 491/L", "Senior Design II", 4)),
             Map.entry("COMP333", new Course("COMP 333", "Concepts of Programming Languages", 4)),
             Map.entry("COMP310", new Course("COMP 310", "Automata", 4)),
-            Map.entry("COMP256-L", new Course("COMP 256/L", "Discrete", 4)),
+            Map.entry("COMP256-L", new Course("COMP 256/L", "Discrete Structures for Computer Science", 4)),
             Map.entry("COMP122-L", new Course("COMP 122/L", "Computer Architecture and Assembly", 4)),
             Map.entry("COMP222", new Course("COMP 222", "Computer Organization", 4)),
             Map.entry("COMP322-L", new Course("COMP 322/l", "Introduction to Operating Systems", 4)),
