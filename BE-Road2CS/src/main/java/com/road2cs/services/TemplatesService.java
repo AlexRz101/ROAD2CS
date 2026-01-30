@@ -1,12 +1,16 @@
 package com.road2cs.services;
 
+
+import com.road2cs.storage.Course;
+import com.road2cs.storage.Template;
+import com.road2cs.storage.Semester;
 import org.springframework.stereotype.Service;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class TemplatesService {
-    /*
-    How we'll form the templates, still need to make the template object
-    Should vote on how many templates we should have, I say 10?
-    Implement this some other time ig
-     */
+
 }
