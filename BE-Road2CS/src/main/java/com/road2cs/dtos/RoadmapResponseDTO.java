@@ -1,7 +1,6 @@
 package com.road2cs.dtos;
 
-import com.road2cs.storage.Template;
-import com.road2cs.services.TemplatesService
+import com.road2cs.models.Template;
 
 public class RoadmapResponseDTO {
     private int years;
@@ -11,4 +10,5 @@ public class RoadmapResponseDTO {
     private int units;
     private Template template;
     private int recommendedUnits;
+    private String chosenField;
 }

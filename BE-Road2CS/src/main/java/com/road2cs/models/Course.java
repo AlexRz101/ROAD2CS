@@ -1,4 +1,4 @@
-package com.road2cs.storage;
+package com.road2cs.models;
 
 import lombok.Getter;
 import lombok.Setter;

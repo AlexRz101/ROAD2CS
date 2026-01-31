@@ -1,7 +1,6 @@
 package com.road2cs.services;
 
-import com.road2cs.storage.Course;
-import com.road2cs.storage.Semester;
+import com.road2cs.models.Semester;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -19,33 +18,41 @@ public class SemesterService {
         initializeSemesters();
     }
 
-    /*
-    Creating semesters
-     */
+    /* Creating semesters */
     private void initializeSemesters() {
-        semesters.put("HeavySem1", createSemester(1, "Fall",
-                "COMP110-L", "MATH102", "GEO101", "COMS"));
+        /* Heavy Load Path - 4 Years (17-18 units per semester) */
 
-        semesters.put("HeavySem2", createSemester(2, "Spring",
-                "COMP182-L", "COMP122-L", "MATH150A-L", "PHIL230", "BIOL101"));
+        //Semester 1 - Fall (18 units)
+        semesters.put("heavySem1", createSemester(1, "Fall",
+                "COMP110-L", "MATH150A-L", "COMS151", "ENG115", "MUS107"));
 
-        semesters.put("HeavySem3", createSemester(3, "Fall",
-                "COMP301", "MATH383", "STAT101"));
+        //Semester 2 - Spring (16 units)
+        semesters.put("heavySem2", createSemester(2, "Spring",
+                "COMP182-L", "COMP122-L", "MATH150B-L", "PHIL230"));
 
-        semesters.put("HeavySem4", createSemester(4, "Fall",
-                "COMP110", "MATH110", "ENGL101", "CHEM101"));
+        //Semester 3 - Fall (18 units)
+        semesters.put("heavySem3", createSemester(3, "Fall",
+                "COMP282", "COMP222", "COMP256-L", "MATH-262", "GEOL101", "GEOL102"));
 
-        semesters.put("HeavySem5", createSemester(5, "Spring",
-                "COMP210", "MATH231", "PHYS101", "BIOL101"));
+        //Semester 4 - Spring (16 units)
+        semesters.put("heavySem4", createSemester(4, "Spring",
+                "BIOL106-L", "HIST271", "ECON101", "POLS155", "AAS100"));
 
-        semesters.put("HeavySem6", createSemester(6, "Fall",
-                "COMP301", "MATH383", "STAT101"));
+        //Semester 5 - Fall (17 units)
+        semesters.put("heavySem5", createSemester(5, "Fall",
+                "COMP322-L", "COMP310", "MATH340", "GEOG321", "COMS356"));
 
-        semesters.put("HeavySem7", createSemester(7, "Fall",
-                "COMP110", "MATH110", "ENGL101", "CHEM101"));
+        //Semester 6 - Spring (15 units)
+        semesters.put("heavySem6", createSemester(6, "Spring",
+                "COMP333", "COMP380-L", "COMP324", "MATH482", "COMP440"));
 
-        semesters.put("HeavySem8", createSemester(8, "Spring",
-                "COMP210", "MATH231", "PHYS101", "BIOL101"));
+        //Semester 7 - Fall (3 units)
+        semesters.put("heavySem7", createSemester(7, "Fall",
+                "COMP490-L"));
+
+        //Semester 8 - Spring (3 units)
+        semesters.put("heavySem8", createSemester(8, "Spring",
+                "COMP491-L"));
 
         /*
         Still gotta do:
@@ -71,5 +78,17 @@ public class SemesterService {
             semester.addCourse(courseService.getCourse(code));
         }
         return semester;
+    }
+
+    public Semester getSemester(String semesterKey) {
+        return semesters.get(semesterKey);
+    }
+
+    public Collection<Semester> getAllSemesters() {
+        return semesters.values();
+    }
+
+    public Map<String, Semester> getSemesterMap() {
+        return semesters;
     }
 }

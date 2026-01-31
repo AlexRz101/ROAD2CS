@@ -15,4 +15,5 @@ public class RoadmapRequestDTO {
     private String workload;
     private boolean summer;
     private boolean winter;
+    private String chosenField;
 }
