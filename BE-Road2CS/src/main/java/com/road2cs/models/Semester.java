@@ -31,49 +31,39 @@ public class Semester {
 
     //Helper methods
 
-    //Add one course - use put() for HashMap
     public void addCourse(Course course) {
         this.courses.put(course.getCourseId(), course);
     }
 
-    // Add multiple courses - loop and put each one
+    //Add multiple courses
     public void addCourses(Map<String, Course> coursesToAdd) {
         this.courses.putAll(coursesToAdd);
     }
 
-    // Alternatively, add from a Collection
+    //Or add from a Collection
     public void addCoursesFromCollection(Collection<Course> coursesToAdd) {
         for (Course course : coursesToAdd) {
             this.courses.put(course.getCourseId(), course);
         }
     }
 
-    // Remove by Course object - use the courseId as key
-    public void removeCourse(Course course) {
-        this.courses.remove(course.getCourseId());
-    }
-
-    //Remove by courseId - HashMap makes this super easy!
     public void removeCourseById(String courseId) {
         this.courses.remove(courseId);
     }
 
-    //Get a course by ID - fast O(1) lookup!
     public Course getCourse(String courseId) {
         return this.courses.get(courseId);
     }
 
-    //Check if semester has a course
     public boolean hasCourse(String courseId) {
         return this.courses.containsKey(courseId);
     }
 
-    //Get all courses as a Collection
     public Collection<Course> getAllCourses() {
         return this.courses.values();
     }
 
-    //Get total credits - loop through values
+    //Get total credits
     public int getTotalCredits() {
         int total = 0;
         for (Course course : this.courses.values()) {
@@ -85,5 +75,19 @@ public class Semester {
     //Get course count
     public int getCourseCount() {
         return this.courses.size();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Semester ").append(termNum).append(" (").append(termName).append(")\n");
+        sb.append("Courses: ").append(getCourseCount()).append(" | Total Units: ").append(getTotalCredits()).append("\n");
+
+        for (Course course : courses.values()) {
+            sb.append("  - ").append(course.getCourseId()).append(": ").append(course.getName())
+                    .append(" (").append(course.getCredits()).append(" units)\n");
+        }
+
+        return sb.toString();
     }
 }

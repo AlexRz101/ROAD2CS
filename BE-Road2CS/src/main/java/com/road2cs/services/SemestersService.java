@@ -8,11 +8,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class SemesterService {
+public class SemestersService {
     private final CoursesService courseService;
     private final Map<String, Semester> semesters;
 
-    public SemesterService(CoursesService courseService) {
+    public SemestersService(CoursesService courseService) {
         this.courseService = courseService;
         this.semesters = new HashMap<>();
         initializeSemesters();
@@ -32,7 +32,7 @@ public class SemesterService {
 
         //Semester 3 - Fall (18 units)
         semesters.put("heavySem3", createSemester(3, "Fall",
-                "COMP282", "COMP222", "COMP256-L", "MATH-262", "GEOL101", "GEOL102"));
+                "COMP282", "COMP222", "COMP256-L", "MATH262", "GEOL101", "GEOL102"));
 
         //Semester 4 - Spring (16 units)
         semesters.put("heavySem4", createSemester(4, "Spring",
