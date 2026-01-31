@@ -1,5 +1,7 @@
 package com.road2cs;
 
+import com.road2cs.models.Semester;
+import com.road2cs.models.Template;
 import com.road2cs.services.*;
 
 import org.jspecify.annotations.NonNull;
@@ -15,11 +17,14 @@ public class Road2CsApplication implements CommandLineRunner {
 
     private final CoursesService coursesService;
     private final SemestersService semestersService;
+    private final TemplatesService templatesService;
 
     public Road2CsApplication(CoursesService coursesService,
-                              SemestersService semestersService) {
+                              SemestersService semestersService,
+                              TemplatesService templatesService) {
         this.coursesService = coursesService;
         this.semestersService = semestersService;
+        this.templatesService = templatesService;
     }
 
     public static void main(String[] args) {
@@ -32,7 +37,17 @@ public class Road2CsApplication implements CommandLineRunner {
         System.out.println("Road2CS Project Baby!!!");
         System.out.println("------------------------");
 
-        // Now you can use semestersService here!
-        System.out.println(semestersService.getAllSemesters());
+        //Get the heavy template and print it
+        Template heavyTemplate = templatesService.getTemplate("CS-4YEAR-HEAVY-2024");
+        System.out.println(heavyTemplate);
+
+
+        /*Print semester in order
+        System.out.println("=== HEAVY LOAD PATH ===\n");
+        for (int i = 1; i <= 8; i++) {
+            Semester sem = semestersService.getSemester("heavySem" + i);
+            System.out.println(sem);
+        }
+        */
     }
 }

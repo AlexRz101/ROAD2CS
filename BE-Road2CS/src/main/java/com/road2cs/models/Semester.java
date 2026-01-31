@@ -12,7 +12,7 @@ import java.util.Collection;
 public class Semester {
     private int termNum; //which term it is
     private String termName; //fall/spring/summer/winter
-    private Map<String, Course> courses;  //courseId -> Course
+    private Map<String, Course> courses;  //courseId to Course
     private int semUnits;
 
     //Constructor - initialize with empty HashMap
@@ -30,7 +30,6 @@ public class Semester {
     }
 
     //Helper methods
-
     public void addCourse(Course course) {
         this.courses.put(course.getCourseId(), course);
     }
