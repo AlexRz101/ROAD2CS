@@ -72,7 +72,7 @@ public class Template {
 
         //Sort and display all semesters
         List<Semester> sortedSemesters = new ArrayList<>(semesters);
-        sortedSemesters.sort(Comparator.comparingInt(Semester::getTermNum));
+        sortedSemesters.sort(Comparator.comparingDouble(Semester::getTermNum));
 
         for (Semester semester : sortedSemesters) {
             sb.append(semester.toString());  //Uses Semester's toString()

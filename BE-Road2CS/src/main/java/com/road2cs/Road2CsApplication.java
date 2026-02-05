@@ -39,8 +39,11 @@ public class Road2CsApplication implements CommandLineRunner {
 
         //Get the heavy template and print it
         Template heavyTemplate = templatesService.getTemplate("CS-4YEAR-HEAVY-2024");
+        Template mediumTemplate = templatesService.getTemplate("CS-4YEAR-MEDIUM-2024");
         System.out.println(heavyTemplate);
-
+        System.out.println();
+        System.out.println();
+        System.out.println(mediumTemplate);
 
         /*Print semester in order
         System.out.println("=== HEAVY LOAD PATH ===\n");

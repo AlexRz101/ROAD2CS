@@ -44,14 +44,25 @@ public class TemplatesService {
                 "heavy",
                 false,
                 false,
-                getSemestersByPrefix("heavySem", 8).values()  // Get Map, then convert to Collection
+                getSemestersByPrefix("heavySem", 8).values()  //Get Map, then convert to Collection
+        );
+
+        //Create 4-Year Medium Template
+        Template mediumTemplate = new Template(
+                "CS-4YEAR-MEDIUM-2024",
+                "4 Year Medium Workload Plan",
+                4,
+                "medium",
+                false,
+                false,
+                getSemestersByPrefix("mediumSem", 8).values()  //Get Map, then convert to Collection
         );
 
         templates.put("CS-4YEAR-HEAVY-2024", heavyTemplate);
+        templates.put("CS-4YEAR-MEDIUM-2024", mediumTemplate);
 
         /*
         Create more templates like
-
          */
     }
 
