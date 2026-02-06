@@ -91,6 +91,50 @@ public class SemestersService {
         /* -------------------------------------------------- */
         /* lightSum&Win semester: 8 normal semesters, 3 summer, 3 winter */
 
+        semesters.put("lightSem1", createSemester(1, "Fall",
+                "COMP110-L", "MATH150A-L", "ENG115"));
+
+        //Semester 2 - Winter (3 units)
+        semesters.put("lightSem2", createSemester(2, "Winter", "COMS151"));
+
+        //Semester 3 - Spring
+        semesters.put("lightSem3", createSemester(3, "Spring",
+                "COMP182-L", "COMP122-L", "MATH150B-L"));
+        //Semester 4 - Summer
+        semesters.put("lightSem4", createSemester(4, "Summer", "PHIL230"));
+
+        semesters.put("lightSem5", createSemester(5, "Fall",
+                "COMP282", "COMP222", "COMP256-L", "GEOL101", "GEOL102"));
+
+        semesters.put("lightSem6", createSemester(6,"winter","GEOG321"));
+
+        semesters.put("lightSem7", createSemester(7, "Spring",
+                "MATH262", "BIOL106-L", "ECON101", "POLS155"));
+
+        semesters.put("lightSem8", createSemester(8, "Summer","AAS100"));
+
+
+        semesters.put("lightSem9", createSemester(9, "Fall",
+                "COMP322-L", "COMP310", "MATH340"));
+
+        semesters.put("lightSem10", createSemester(10, "winter",
+                "MUS107"));
+
+        semesters.put("lightSem11", createSemester(11, "Spring",
+                "COMP333", "COMP380-L", "COMP324" ));
+
+        semesters.put("lightSem12", createSemester(12, "Summer",
+                "HIST271"));
+
+        semesters.put("lightSem13", createSemester(13, "Fall",
+                "COMP490-L", "MATH482", "COMP440"));
+
+        semesters.put("lightSem14", createSemester(14, "Winter",
+                "COMS356"));
+
+        semesters.put("lightSem15", createSemester(15, "Spring",
+                "COMP491-L"));
+
         /* -------------------------------------------------- */
         /* Light semesters: 10 normal semesters */
 
