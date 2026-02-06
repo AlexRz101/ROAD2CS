@@ -57,9 +57,20 @@ public class TemplatesService {
                 false,
                 getSemestersByPrefix("mediumSem", 8).values()  //Get Map, then convert to Collection
         );
+        Template lightTemplateSW = new Template(
+                "CS-4YEAR-light-SW-2024",
+                "4 Year light Workload Plan with summer and winter",
+                4,
+                "light",
+                true,
+                true,
+                getSemestersByPrefix("lightSem", 15).values()  //Get Map, then convert to Collection
+        );
+
 
         templates.put("CS-4YEAR-HEAVY-2024", heavyTemplate);
         templates.put("CS-4YEAR-MEDIUM-2024", mediumTemplate);
+        templates.put("CS-4YEAR-LIGHT-2024", lightTemplateSW);
 
         /*
         Create more templates like
