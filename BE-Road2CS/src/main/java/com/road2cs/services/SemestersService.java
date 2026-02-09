@@ -137,6 +137,35 @@ public class SemestersService {
 
         /* -------------------------------------------------- */
         /* Light semesters: 10 normal semesters */
+        semesters.put("regLightSem1", createSemester(1, "Fall",
+                "COMP110-L", "MATH150A-L", "ENG115"));
+
+        semesters.put("regLightSem2", createSemester(2, "Spring",
+                "COMP182-L", "COMP122-L", "MATH150B-L"));
+
+        semesters.put("regLightSem3", createSemester(3, "Fall",
+                "PHIL230", "COMP222", "COMS151","GEOL101", "GEOL102"));
+
+        semesters.put("regLightSem4", createSemester(4, "Spring",
+                "COMP256-L", "COMP282", "ECON101", "POLS155"));
+
+        semesters.put("regLightSem5", createSemester(5, "Fall",
+                "COMP322-L", "COMP310", "MATH340", "MUS107"));
+
+        semesters.put("regLightSem6", createSemester(6, "Spring",
+                "COMP333", "COMP380-L", "COMP324", "HIST271"));
+
+        semesters.put("regLightSem7", createSemester(7, "Fall",
+                "MATH262", "BIOL106-L", "GEOG321", "AAS100"));
+
+        semesters.put("regLightSem8", createSemester(8, "Spring",
+                "COMP440", "COMS356"));
+
+        semesters.put("regLightSem9", createSemester(9, "Fall",
+                "COMP490-L", "MATH482"));
+
+        semesters.put("regLightSem10", createSemester(10, "Spring",
+                "COMP491-L"));
 
         /* -------------------------------------------------- */
         /* Part-time semesters: 12 semester, around 10 units per sem */
