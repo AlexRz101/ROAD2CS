@@ -1,7 +1,11 @@
 package com.road2cs.dtos;
 
 import com.road2cs.models.Template;
+import lombok.*;
 
+@Data  // Includes @Getter, @Setter, @ToString, @EqualsAndHashCode, @RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class RoadmapResponseDTO {
     private int years;
     private String workload;
