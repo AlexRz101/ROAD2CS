@@ -17,15 +17,6 @@ public class Road2CSService {
     public Road2CSService(TemplatesService template) {
         this.template = template;
     }
-    /*
-    public class RoadmapRequestDTO {
-        private int years;
-        private String workload;
-        private boolean summer;
-        private boolean winter;
-        private String chosenField;
-    }
-     */
 
     /* Helper Methods */
     //Fetching the proper template
@@ -49,6 +40,11 @@ public class Road2CSService {
 
         Template userTemplate = fetchTemplate(request);
 
+        //Simple Error Check
+        if (userTemplate == null) {
+            throw new IllegalArgumentException("Template not found");
+        }
+
         //Build response
         RoadmapResponseDTO response = new RoadmapResponseDTO();
         response.setYears(request.getYears());
@@ -62,4 +58,7 @@ public class Road2CSService {
 
         return response;
     }
+
+    /* Error checks */
+
 }
