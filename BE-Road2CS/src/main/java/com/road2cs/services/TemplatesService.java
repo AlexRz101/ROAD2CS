@@ -75,13 +75,22 @@ public class TemplatesService {
                 false,
                 getSemestersByPrefix("regLightSem", 10).values()  //Get Map, then convert to Collection
         );
+        Template partTimeTemplate = new Template(
+                "CS-6YEAR-light-2024",
+                "light 6 year plan",
+                6,
+                "light",
+                false,
+                false,
+                getSemestersByPrefix("ptSem", 12).values()  //Get Map, then convert to Collection
+        );
 
 
         templates.put("CS-4YEAR-HEAVY-2024", heavyTemplate);
         templates.put("CS-4YEAR-MEDIUM-2024", mediumTemplate);
         templates.put("CS-4YEAR-LIGHT-2024", lightTemplateSW);
         templates.put("CS-5YEAR-LIGHT-2024", regLightTemplate);
-
+        templates.put("CS-6YEAR-LIGHT-2024", partTimeTemplate);
         /*
         Create more templates like
          */
