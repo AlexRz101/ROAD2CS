@@ -8,10 +8,11 @@ export default function Header() {
             <div className="">
                 <a href='https://www.csun.edu'> <img src='/CSUN_logo.svg' className="h-16 m-16"></img> </a>
             </div>
-            <div className="m-16 font-serif"> <div>{name}</div>
-                <div className="">{studentID}</div>
-                <div className="">{major}</div></div>
-
+            <div className="m-16 text-Montserrat"> 
+                <div>{name}</div>
+                <div>{studentID}</div>
+                <div>{major}</div>
+            </div>
         </div>
     )
 }
