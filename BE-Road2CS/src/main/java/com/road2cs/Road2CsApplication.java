@@ -42,6 +42,7 @@ public class Road2CsApplication implements CommandLineRunner {
         Template mediumTemplate = templatesService.getTemplate("CS-4YEAR-MEDIUM-2024");
         Template lightTemplateSW = templatesService.getTemplate("CS-4YEAR-LIGHT-2024");
         Template regLightTemplate = templatesService.getTemplate("CS-5YEAR-LIGHT-2024");
+        Template partTimeTemplate = templatesService.getTemplate("CS-6YEAR-LIGHT-2024");
         System.out.println(heavyTemplate);
         System.out.println();
         System.out.println();
@@ -52,7 +53,9 @@ public class Road2CsApplication implements CommandLineRunner {
         System.out.println();
         System.out.println();
         System.out.println(regLightTemplate);
-
+        System.out.println();
+        System.out.println();
+        System.out.println(partTimeTemplate);
         /*Print semester in order
         System.out.println("=== HEAVY LOAD PATH ===\n");
         for (int i = 1; i <= 8; i++) {
