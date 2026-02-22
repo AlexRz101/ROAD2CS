@@ -208,7 +208,7 @@ public class SemestersService {
 
     }
 
-    private Semester createSemester(double number, String term, String... courseCodes) {
+    private Semester createSemester(int number, String term, String... courseCodes) {
         Semester semester = new Semester(number, term);
         for (String code : courseCodes) {
             semester.addCourse(courseService.getCourse(code));

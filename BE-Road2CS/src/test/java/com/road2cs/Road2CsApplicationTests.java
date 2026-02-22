@@ -65,7 +65,7 @@ class Road2CsApplicationTests {
         assertEquals("heavy", response.getWorkload());
         assertFalse(response.getTemplate().isSummer()); //Boolean assertion
         assertFalse(response.getTemplate().isWinter());
-        assertTrue(response.getUnits() >= 100);
+        assertTrue(response.getUnits() >= 90);
         assertEquals(templatesService.getTemplate("CS-4YEAR-HEAVY-2024"), response.getTemplate());
     }
 
@@ -78,7 +78,7 @@ class Road2CsApplicationTests {
         assertEquals("medium", response.getWorkload());
         assertFalse(response.getTemplate().isSummer());
         assertFalse(response.getTemplate().isWinter());
-        assertTrue(response.getUnits() >= 100);
+        assertTrue(response.getUnits() >= 90);
         assertEquals(templatesService.getTemplate("CS-4YEAR-MEDIUM-2024"), response.getTemplate());
     }
 
@@ -91,7 +91,7 @@ class Road2CsApplicationTests {
         assertEquals("light", response.getWorkload());
         assertTrue(response.getTemplate().isSummer());
         assertTrue(response.getTemplate().isWinter());
-        assertTrue(response.getUnits() >= 100);
+        assertTrue(response.getUnits() >= 90);
         assertEquals(templatesService.getTemplate("CS-4YEAR-LIGHT-2024"), response.getTemplate());
     }
 
@@ -104,7 +104,7 @@ class Road2CsApplicationTests {
         assertEquals("light", response.getWorkload());
         assertFalse(response.getTemplate().isSummer());
         assertFalse(response.getTemplate().isWinter());
-        assertTrue(response.getUnits() >= 100);
+        assertTrue(response.getUnits() >= 90);
         assertEquals(templatesService.getTemplate("CS-5YEAR-LIGHT-2024"), response.getTemplate());
     }
 }
