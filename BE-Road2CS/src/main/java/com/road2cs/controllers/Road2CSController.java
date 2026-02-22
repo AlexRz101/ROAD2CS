@@ -10,11 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-/*
-Controller that communicates with the frontend via endpoints
-Follow: Fat service, Skinny controller
-Put logic into service, keep controller minimal as possible
- */
 @CrossOrigin(origins = "http://localhost:5173/")
 @RestController
 @RequestMapping("/api/roadmap")
@@ -29,28 +24,39 @@ public class Road2CSController {
         this.rateLimitService = rateLimitService;
     }
 
+    /*
+    Probably only one POST mapping to fetch and display templates
+     */
     @PostMapping
     public ResponseEntity<RoadmapResponseDTO> returnTemplate(
             @Valid @RequestBody RoadmapRequestDTO request,
             HttpServletRequest httpRequest) {
 
-        //Rate limiting by IP
+        //API/Rate limit buckets reliant on IPs
         String clientIp = httpRequest.getRemoteAddr();
         Bucket bucket = rateLimitService.resolveBucket(clientIp);
 
         if (!bucket.tryConsume(1)) {
-            return ResponseEntity
-                    .status(HttpStatus.TOO_MANY_REQUESTS)
-                    .body(null);
+            return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body(null); //Error 429
         }
 
         try {
             RoadmapResponseDTO response = road2CSService.generateResponse(request);
-            return ResponseEntity.ok(response);
+
+            //Invalid params (roadmap type not found/recognized)
+            if (response == null) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null); //Error 400
+            }
+
+            return ResponseEntity.ok(response); //Success 200
+
+        } catch (IllegalArgumentException e) {
+            //Invalid params (bad input that passed @Valid)
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null); //Error 400
+
         } catch (Exception e) {
-            return ResponseEntity
-                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(null);
+            //General response error
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null); //Error 500
         }
     }
 }

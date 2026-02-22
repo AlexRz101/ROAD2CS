@@ -24,14 +24,17 @@ public class Road2CSService {
         if (request.getYears() == 4 && request.getWorkload().equals("heavy")) {
             return template.getTemplate("CS-4YEAR-HEAVY-2024");
 
+        } else if (request.getYears() == 4 && request.getWorkload().equals("medium")) {
+            return template.getTemplate("CS-4YEAR-MEDIUM-2024");
+
         } else if (request.getYears() == 4 && request.getWorkload().equals("light")) {
             return template.getTemplate("CS-4YEAR-LIGHT-2024");
 
         } else if (request.getYears() == 5 && request.getWorkload().equals("light")) {
             return template.getTemplate("CS-5YEAR-LIGHT-2024");
 
-        } else { //Base template is medium
-            return template.getTemplate("CS-4YEAR-MEDIUM-2024");
+        } else {
+            throw new IllegalArgumentException("Invalid template parameters");
         }
     }
 
