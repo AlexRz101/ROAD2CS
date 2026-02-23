@@ -21,21 +21,37 @@ public class Road2CSService {
     /* Helper Methods */
     //Fetching the proper template
     public Template fetchTemplate(RoadmapRequestDTO request) {
-        if (request.getYears() == 4 && request.getWorkload().equals("heavy")) {
-            return template.getTemplate("CS-4YEAR-HEAVY-2024");
+        if (request.getYears() == 4) {
+            if (request.getWorkload().equals("heavy")) {
+                return switch (request.getChosenField()) {
+                    case "Machine Learning" -> template.getTemplate("CS-4YEAR-HEAVY-ML-2024");
+                    case "Web Development" -> template.getTemplate("CS-4YEAR-HEAVY-WD-2024");
+                    case "Game Development" -> template.getTemplate("CS-4YEAR-HEAVY-GD-2024");
+                    case "Data Science" -> template.getTemplate("CS-4YEAR-HEAVY-DS-2024");
+                    case "Cybersecurity" -> template.getTemplate("CS-4YEAR-HEAVY-CS-2024");
 
-        } else if (request.getYears() == 4 && request.getWorkload().equals("medium")) {
-            return template.getTemplate("CS-4YEAR-MEDIUM-2024");
+                    //Default heavy template (Software Engineering)
+                    default -> template.getTemplate("CS-4YEAR-HEAVY-SE-2024");
+                };
 
-        } else if (request.getYears() == 4 && request.getWorkload().equals("light")) {
-            return template.getTemplate("CS-4YEAR-LIGHT-2024");
+            } else if (request.getWorkload().equals("medium")) {
+                return template.getTemplate("CS-4YEAR-MEDIUM-2024");
 
-        } else if (request.getYears() == 5 && request.getWorkload().equals("light")) {
-            return template.getTemplate("CS-5YEAR-LIGHT-2024");
+            } else if (request.getWorkload().equals("light")) {
+                return template.getTemplate("CS-4YEAR-LIGHT-2024");
+            }
 
-        } else {
-            throw new IllegalArgumentException("Invalid template parameters");
+        } else if (request.getYears() == 5) {
+            if (request.getWorkload().equals("light")) {
+                return template.getTemplate("CS-5YEAR-LIGHT-2024");
+            }
+
+        } else if (request.getYears() == 6) {
+            return template.getTemplate("CS-6Year-PT-2024");
         }
+
+        //Default to error
+        throw new IllegalArgumentException("Invalid template parameters");
     }
 
     //Return to controller

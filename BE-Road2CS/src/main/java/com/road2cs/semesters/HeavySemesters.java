@@ -77,11 +77,11 @@ public class HeavySemesters {
                 "COMP491-L", "COMP522", "COMP583"));
 
         //Software Engineering Sem1 - Fall
-        semesters.put("heavySem7", createSemester(courseService, 7, "Fall",
+        semesters.put("heavySemSE7", createSemester(courseService, 7, "Fall",
                 "COMP490-L", "COMP583", "COMP586", "COMP430"));
 
         //Software Engineering Sem2 - Spring
-        semesters.put("heavySem8", createSemester(courseService, 8, "Spring",
+        semesters.put("heavySemSE8", createSemester(courseService, 8, "Spring",
                 "COMP491-L", "COMP589", "COMP585", "COMP502"));
     }
 

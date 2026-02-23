@@ -67,6 +67,7 @@ public class TemplateService {
                 false,
                 getSemestersByPrefix("mediumSem", 8).values()  //Get Map, then convert to Collection
         );
+
         Template lightTemplateSW = new Template(
                 "CS-4YEAR-light-SW-2024",
                 "4 Year light Workload Plan with summer and winter",
@@ -76,6 +77,7 @@ public class TemplateService {
                 true,
                 getSemestersByPrefix("lightSem", 15).values()  //Get Map, then convert to Collection
         );
+
         Template regLightTemplate = new Template(
                 "CS-5YEAR-light-2024",
                 "light 5 year plan",
@@ -85,8 +87,9 @@ public class TemplateService {
                 false,
                 getSemestersByPrefix("regLightSem", 10).values()  //Get Map, then convert to Collection
         );
+
         Template partTimeTemplate = new Template(
-                "CS-6YEAR-light-2024",
+                "CS-6YEAR-PT-2024",
                 "light 6 year plan",
                 6,
                 "light",
