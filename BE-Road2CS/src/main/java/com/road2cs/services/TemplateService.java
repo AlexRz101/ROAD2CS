@@ -7,23 +7,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class TemplatesService {
+public class TemplateService {
 
-    private final CoursesService courseService;
-    private final SemestersService semestersService;
+    private final CourseService courseService;
+    private final SemesterService semesterService;
     private final Map<String, Template> templates;
 
-    public TemplatesService(CoursesService courseService,
-                            SemestersService semestersService) {
+    public TemplateService(CourseService courseService,
+                            SemesterService semesterService) {
         this.courseService = courseService;
-        this.semestersService = semestersService;
+        this.semesterService = semesterService;
         this.templates = new HashMap<>();
         initializeTemplates();
     }
 
     //Helper method to extract semesters by prefix
     private Map<String, Semester> getSemestersByPrefix(String prefix, int count) {
-        Map<String, Semester> allSemesters = semestersService.getSemesterMap();
+        Map<String, Semester> allSemesters = semesterService.getSemesterMap();
         Map<String, Semester> result = new HashMap<>();
 
         for (int i = 1; i <= count; i++) {
@@ -34,18 +34,28 @@ public class TemplatesService {
         return result;
     }
 
+    private Template createHeavyTemplate(String track, String trackName) {
+        Map<String, Semester> sems = getSemestersByPrefix("heavySem", 6);
+        sems.put("sem7", semesterService.getSemester("heavySem" + track + "7"));
+        sems.put("sem8", semesterService.getSemester("heavySem" + track + "8"));
+
+        return new Template(
+                "CS-4YEAR-HEAVY-" + track + "-2024",
+                "4 Year Heavy - " + trackName,
+                4, "heavy", false, false,
+                sems.values()
+        );
+    }
+
     /* Creating Templates */
     private void initializeTemplates() {
-        //Create 4-Year Heavy Template
-        Template heavyTemplate = new Template(
-                "CS-4YEAR-HEAVY-2024",
-                "4 Year Heavy Workload Plan",
-                4,
-                "heavy",
-                false,
-                false,
-                getSemestersByPrefix("heavySem", 8).values()  //Get Map, then convert to Collection
-        );
+        // Heavy - one per track
+        templates.put("CS-4YEAR-HEAVY-ML-2024", createHeavyTemplate("ML", "Machine Learning"));
+        templates.put("CS-4YEAR-HEAVY-WD-2024", createHeavyTemplate("WD", "Web Development"));
+        templates.put("CS-4YEAR-HEAVY-GD-2024", createHeavyTemplate("GD", "Game Development"));
+        templates.put("CS-4YEAR-HEAVY-DS-2024", createHeavyTemplate("DS", "Data Science"));
+        templates.put("CS-4YEAR-HEAVY-CS-2024", createHeavyTemplate("CS", "Cybersecurity"));
+        templates.put("CS-4YEAR-HEAVY-SE-2024", createHeavyTemplate("SE", "Software Engineering"));
 
         //Create 4-Year Medium Template
         Template mediumTemplate = new Template(
@@ -85,8 +95,6 @@ public class TemplatesService {
                 getSemestersByPrefix("ptSem", 12).values()  //Get Map, then convert to Collection
         );
 
-
-        templates.put("CS-4YEAR-HEAVY-2024", heavyTemplate);
         templates.put("CS-4YEAR-MEDIUM-2024", mediumTemplate);
         templates.put("CS-4YEAR-LIGHT-2024", lightTemplateSW);
         templates.put("CS-5YEAR-LIGHT-2024", regLightTemplate);

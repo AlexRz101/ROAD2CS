@@ -15,16 +15,16 @@ This is how our app will run, don't touch for now
 @SpringBootApplication
 public class Road2CsApplication implements CommandLineRunner {
 
-    private final CoursesService coursesService;
-    private final SemestersService semestersService;
-    private final TemplatesService templatesService;
+    private final CourseService courseService;
+    private final SemesterService semesterService;
+    private final TemplateService templateService;
 
-    public Road2CsApplication(CoursesService coursesService,
-                              SemestersService semestersService,
-                              TemplatesService templatesService) {
-        this.coursesService = coursesService;
-        this.semestersService = semestersService;
-        this.templatesService = templatesService;
+    public Road2CsApplication(CourseService courseService,
+                              SemesterService semesterService,
+                              TemplateService templateService) {
+        this.courseService = courseService;
+        this.semesterService = semesterService;
+        this.templateService = templateService;
     }
 
     public static void main(String[] args) {
@@ -33,35 +33,6 @@ public class Road2CsApplication implements CommandLineRunner {
 
     @Override
     public void run(String @NonNull ... args) throws Exception {
-        System.out.println("------------------------");
-        System.out.println("Road2CS Project Baby!!!");
-        System.out.println("------------------------");
 
-        //Get the heavy template and print it
-        Template heavyTemplate = templatesService.getTemplate("CS-4YEAR-HEAVY-2024");
-        Template mediumTemplate = templatesService.getTemplate("CS-4YEAR-MEDIUM-2024");
-        Template lightTemplateSW = templatesService.getTemplate("CS-4YEAR-LIGHT-2024");
-        Template regLightTemplate = templatesService.getTemplate("CS-5YEAR-LIGHT-2024");
-        Template partTimeTemplate = templatesService.getTemplate("CS-6YEAR-LIGHT-2024");
-        System.out.println(heavyTemplate);
-        System.out.println();
-        System.out.println();
-        System.out.println(mediumTemplate);
-        System.out.println();
-        System.out.println();
-        System.out.println(lightTemplateSW);
-        System.out.println();
-        System.out.println();
-        System.out.println(regLightTemplate);
-        System.out.println();
-        System.out.println();
-        System.out.println(partTimeTemplate);
-        /*Print semester in order
-        System.out.println("=== HEAVY LOAD PATH ===\n");
-        for (int i = 1; i <= 8; i++) {
-            Semester sem = semestersService.getSemester("heavySem" + i);
-            System.out.println(sem);
-        }
-        */
     }
 }

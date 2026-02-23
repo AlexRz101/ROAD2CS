@@ -12,9 +12,9 @@ How we verify checkboxes, make sure valid templates are returned, etc.
 @Service
 public class Road2CSService {
 
-    private final TemplatesService template;
+    private final TemplateService template;
 
-    public Road2CSService(TemplatesService template) {
+    public Road2CSService(TemplateService template) {
         this.template = template;
     }
 

@@ -4,7 +4,7 @@ package com.road2cs;
 import com.road2cs.dtos.RoadmapRequestDTO;
 import com.road2cs.dtos.RoadmapResponseDTO;
 import com.road2cs.services.Road2CSService;
-import com.road2cs.services.TemplatesService;
+import com.road2cs.services.TemplateService;
 
 //General Spring imports
 import org.junit.jupiter.api.Test;
@@ -19,13 +19,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class Road2CsApplicationTests {
 
     private final Road2CSService road2CSService;
-    private final TemplatesService templatesService;
+    private final TemplateService templateService;
 
     @Autowired
     public Road2CsApplicationTests(Road2CSService road2CSService,
-                                   TemplatesService templatesService) {
+                                   TemplateService templateService) {
         this.road2CSService = road2CSService;
-        this.templatesService = templatesService;
+        this.templateService = templateService;
     }
 
     @Test
@@ -66,7 +66,7 @@ class Road2CsApplicationTests {
         assertFalse(response.getTemplate().isSummer()); //Boolean assertion
         assertFalse(response.getTemplate().isWinter());
         assertTrue(response.getUnits() >= 90);
-        assertEquals(templatesService.getTemplate("CS-4YEAR-HEAVY-2024"), response.getTemplate());
+        assertEquals(templateService.getTemplate("CS-4YEAR-HEAVY-2024"), response.getTemplate());
     }
 
     @Test
@@ -79,7 +79,7 @@ class Road2CsApplicationTests {
         assertFalse(response.getTemplate().isSummer());
         assertFalse(response.getTemplate().isWinter());
         assertTrue(response.getUnits() >= 90);
-        assertEquals(templatesService.getTemplate("CS-4YEAR-MEDIUM-2024"), response.getTemplate());
+        assertEquals(templateService.getTemplate("CS-4YEAR-MEDIUM-2024"), response.getTemplate());
     }
 
     @Test
@@ -92,7 +92,7 @@ class Road2CsApplicationTests {
         assertTrue(response.getTemplate().isSummer());
         assertTrue(response.getTemplate().isWinter());
         assertTrue(response.getUnits() >= 90);
-        assertEquals(templatesService.getTemplate("CS-4YEAR-LIGHT-2024"), response.getTemplate());
+        assertEquals(templateService.getTemplate("CS-4YEAR-LIGHT-2024"), response.getTemplate());
     }
 
     @Test
@@ -105,6 +105,6 @@ class Road2CsApplicationTests {
         assertFalse(response.getTemplate().isSummer());
         assertFalse(response.getTemplate().isWinter());
         assertTrue(response.getUnits() >= 90);
-        assertEquals(templatesService.getTemplate("CS-5YEAR-LIGHT-2024"), response.getTemplate());
+        assertEquals(templateService.getTemplate("CS-5YEAR-LIGHT-2024"), response.getTemplate());
     }
 }
