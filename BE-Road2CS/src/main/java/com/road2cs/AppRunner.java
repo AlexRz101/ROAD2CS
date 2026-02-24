@@ -34,45 +34,27 @@ public class AppRunner implements CommandLineRunner {
         System.out.println("------------------------");
 
         //Get the heavy template and print it
-        Template heavyTemplateML = templateService.getTemplate("CS-4YEAR-HEAVY-ML-2024");
-        Template heavyTemplateWD = templateService.getTemplate("CS-4YEAR-HEAVY-WD-2024");
-        Template heavyTemplateGD = templateService.getTemplate("CS-4YEAR-HEAVY-ML-2024");
-        Template heavyTemplateDS = templateService.getTemplate("CS-4YEAR-HEAVY-ML-2024");
-        Template heavyTemplateCS = templateService.getTemplate("CS-4YEAR-HEAVY-ML-2024");
-        Template heavyTemplateSE = templateService.getTemplate("CS-4YEAR-HEAVY-ML-2024");
-        System.out.println(heavyTemplateML);
+        Template mediumTemplateML = templateService.getTemplate("CS-4YEAR-MEDIUM-ML-2024");
+        Template mediumTemplateWD = templateService.getTemplate("CS-4YEAR-MEDIUM-WD-2024");
+        Template mediumTemplateGD = templateService.getTemplate("CS-4YEAR-MEDIUM-ML-2024");
+        Template mediumTemplateDS = templateService.getTemplate("CS-4YEAR-MEDIUM-ML-2024");
+        Template mediumTemplateCS = templateService.getTemplate("CS-4YEAR-MEDIUM-ML-2024");
+        Template mediumTemplateSE = templateService.getTemplate("CS-4YEAR-MEDIUM-ML-2024");
+        System.out.println(mediumTemplateML);
         System.out.println();
         System.out.println();
-        System.out.println(heavyTemplateWD);
+        System.out.println(mediumTemplateWD);
         System.out.println();
         System.out.println();
-        System.out.println(heavyTemplateGD);
+        System.out.println(mediumTemplateGD);
         System.out.println();
         System.out.println();
-        System.out.println(heavyTemplateDS);
+        System.out.println(mediumTemplateDS);
         System.out.println();
         System.out.println();
-        System.out.println(heavyTemplateCS);
+        System.out.println(mediumTemplateCS);
         System.out.println();
         System.out.println();
-        System.out.println(heavyTemplateSE);
-        /*
-        Template mediumTemplate = templateService.getTemplate("CS-4YEAR-MEDIUM-2024");
-        Template lightTemplateSW = templateService.getTemplate("CS-4YEAR-LIGHT-2024");
-        Template regLightTemplate = templateService.getTemplate("CS-5YEAR-LIGHT-2024");
-        Template partTimeTemplate = templateService.getTemplate("CS-6YEAR-LIGHT-2024");
-        System.out.println();
-        System.out.println();
-        System.out.println(mediumTemplate);
-        System.out.println();
-        System.out.println();
-        System.out.println(lightTemplateSW);
-        System.out.println();
-        System.out.println();
-        System.out.println(regLightTemplate);
-        System.out.println();
-        System.out.println();
-        System.out.println(partTimeTemplate);
-         */
+        System.out.println(mediumTemplateSE);
     }
 }

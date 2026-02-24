@@ -35,7 +35,16 @@ public class Road2CSService {
                 };
 
             } else if (request.getWorkload().equals("medium")) {
-                return template.getTemplate("CS-4YEAR-MEDIUM-2024");
+                return switch (request.getChosenField()) {
+                    case "Machine Learning" -> template.getTemplate("CS-4YEAR-MEDIUM-ML-2024");
+                    case "Web Development" -> template.getTemplate("CS-4YEAR-MEDIUM-WD-2024");
+                    case "Game Development" -> template.getTemplate("CS-4YEAR-MEDIUM-GD-2024");
+                    case "Data Science" -> template.getTemplate("CS-4YEAR-MEDIUM-DS-2024");
+                    case "Cybersecurity" -> template.getTemplate("CS-4YEAR-MEDIUM-CS-2024");
+
+                    //Default medium template (Software Engineering)
+                    default -> template.getTemplate("CS-4YEAR-MEDIUM-SE-2024");
+                };
 
             } else if (request.getWorkload().equals("light")) {
                 return template.getTemplate("CS-4YEAR-LIGHT-2024");
@@ -48,6 +57,7 @@ public class Road2CSService {
 
         } else if (request.getYears() == 6) {
             return template.getTemplate("CS-6Year-PT-2024");
+            
         }
 
         //Default to error

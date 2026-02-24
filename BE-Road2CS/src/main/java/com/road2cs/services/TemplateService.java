@@ -47,15 +47,37 @@ public class TemplateService {
         );
     }
 
+    private Template createMediumTemplate(String track, String trackName) {
+        Map<String, Semester> sems = getSemestersByPrefix("mediumSem", 6);
+        sems.put("sem7", semesterService.getSemester("mediumSem" + track + "7"));
+        sems.put("sem8", semesterService.getSemester("mediumSem" + track + "8"));
+
+        return new Template(
+                "CS-4YEAR-MEDIUM-" + track + "-2024",
+                "4 Year Medium - " + trackName,
+                4, "medium", false, false,
+                sems.values()
+        );
+    }
+
+
     /* Creating Templates */
     private void initializeTemplates() {
-        // Heavy - one per track
+        //Heavy - one per track
         templates.put("CS-4YEAR-HEAVY-ML-2024", createHeavyTemplate("ML", "Machine Learning"));
         templates.put("CS-4YEAR-HEAVY-WD-2024", createHeavyTemplate("WD", "Web Development"));
         templates.put("CS-4YEAR-HEAVY-GD-2024", createHeavyTemplate("GD", "Game Development"));
         templates.put("CS-4YEAR-HEAVY-DS-2024", createHeavyTemplate("DS", "Data Science"));
         templates.put("CS-4YEAR-HEAVY-CS-2024", createHeavyTemplate("CS", "Cybersecurity"));
         templates.put("CS-4YEAR-HEAVY-SE-2024", createHeavyTemplate("SE", "Software Engineering"));
+
+        //Medium - one per track
+        templates.put("CS-4YEAR-MEDIUM-ML-2024", createMediumTemplate("ML", "Machine Learning"));
+        templates.put("CS-4YEAR-MEDIUM-WD-2024", createMediumTemplate("WD", "Web Development"));
+        templates.put("CS-4YEAR-MEDIUM-GD-2024", createMediumTemplate("GD", "Game Development"));
+        templates.put("CS-4YEAR-MEDIUM-DS-2024", createMediumTemplate("DS", "Data Science"));
+        templates.put("CS-4YEAR-MEDIUM-CS-2024", createMediumTemplate("CS", "Cybersecurity"));
+        templates.put("CS-4YEAR-MEDIUM-SE-2024", createMediumTemplate("SE", "Software Engineering"));
 
         //Create 4-Year Medium Template
         Template mediumTemplate = new Template(
@@ -98,10 +120,9 @@ public class TemplateService {
                 getSemestersByPrefix("ptSem", 12).values()  //Get Map, then convert to Collection
         );
 
-        templates.put("CS-4YEAR-MEDIUM-2024", mediumTemplate);
         templates.put("CS-4YEAR-LIGHT-2024", lightTemplateSW);
         templates.put("CS-5YEAR-LIGHT-2024", regLightTemplate);
-        templates.put("CS-6YEAR-LIGHT-2024", partTimeTemplate);
+        templates.put("CS-6YEAR-PT-2024", partTimeTemplate);
         /*
         Create more templates like
          */
