@@ -16,7 +16,7 @@ public class RoadmapRequestDTO {
 
     //Make sure workload is light, medium or heavy
     @NotBlank(message = "Workload is required")
-    @Pattern(regexp = "^(light|medium|heavy)$",
+    @Pattern(regexp = "^(?i)(light|medium|heavy)$",
             message = "Workload must be light, moderate, or heavy")
     private String workload;
 

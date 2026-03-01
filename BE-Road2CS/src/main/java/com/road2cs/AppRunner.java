@@ -34,27 +34,28 @@ public class AppRunner implements CommandLineRunner {
         System.out.println("------------------------");
 
         //Get the heavy template and print it
-        Template mediumTemplateML = templateService.getTemplate("CS-4YEAR-MEDIUM-ML-2024");
-        Template mediumTemplateWD = templateService.getTemplate("CS-4YEAR-MEDIUM-WD-2024");
-        Template mediumTemplateGD = templateService.getTemplate("CS-4YEAR-MEDIUM-ML-2024");
-        Template mediumTemplateDS = templateService.getTemplate("CS-4YEAR-MEDIUM-ML-2024");
-        Template mediumTemplateCS = templateService.getTemplate("CS-4YEAR-MEDIUM-ML-2024");
-        Template mediumTemplateSE = templateService.getTemplate("CS-4YEAR-MEDIUM-ML-2024");
-        System.out.println(mediumTemplateML);
+        Template lightTemplateML = templateService.getTemplate("CS-4YEAR-LIGHT-ML-2024");
+        Template lightTemplateWD = templateService.getTemplate("CS-4YEAR-LIGHT-WD-2024");
+        Template lightTemplateGD = templateService.getTemplate("CS-4YEAR-LIGHT-GD-2024");
+        Template lightTemplateDS = templateService.getTemplate("CS-4YEAR-LIGHT-DS-2024");
+        Template lightTemplateCS = templateService.getTemplate("CS-4YEAR-LIGHT-CS-2024");
+        Template lightTemplateSE = templateService.getTemplate("CS-4YEAR-LIGHT-SE-2024");
+
+        System.out.println(lightTemplateML);
         System.out.println();
         System.out.println();
-        System.out.println(mediumTemplateWD);
+        System.out.println(lightTemplateWD);
         System.out.println();
         System.out.println();
-        System.out.println(mediumTemplateGD);
+        System.out.println(lightTemplateGD);
         System.out.println();
         System.out.println();
-        System.out.println(mediumTemplateDS);
+        System.out.println(lightTemplateDS);
         System.out.println();
         System.out.println();
-        System.out.println(mediumTemplateCS);
+        System.out.println(lightTemplateCS);
         System.out.println();
         System.out.println();
-        System.out.println(mediumTemplateSE);
+        System.out.println(lightTemplateSE);
     }
 }

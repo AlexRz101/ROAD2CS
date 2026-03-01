@@ -57,7 +57,7 @@ class Road2CsApplicationTests {
     }
 
     @Test
-    void shouldReturnHeavyRoadmap() {
+    void shouldReturnHeavyDefaultRoadmap() {
         RoadmapRequestDTO request = new RoadmapRequestDTO(4, "heavy", false, false, "nothing");
         RoadmapResponseDTO response = road2CSService.generateResponse(request);
         assertNotNull(response);
@@ -65,12 +65,40 @@ class Road2CsApplicationTests {
         assertEquals("heavy", response.getWorkload());
         assertFalse(response.getTemplate().isSummer()); //Boolean assertion
         assertFalse(response.getTemplate().isWinter());
-        assertTrue(response.getUnits() >= 90);
-        assertEquals(templateService.getTemplate("CS-4YEAR-HEAVY-2024"), response.getTemplate());
+        assertTrue(response.getUnits() >= 120);
+        assertEquals(templateService.getTemplate("CS-4YEAR-HEAVY-SE-2024"), response.getTemplate());
     }
 
     @Test
-    void shouldReturn4YearMediumRoadmap() {
+    void shouldReturnHeavyMLRoadmap() {
+        RoadmapRequestDTO request = new RoadmapRequestDTO(4, "heavy", false, false, "machine learning");
+        RoadmapResponseDTO response = road2CSService.generateResponse(request);
+        assertNotNull(response);
+        assertEquals(4, response.getYears());
+        assertEquals("heavy", response.getWorkload());
+        assertFalse(response.getTemplate().isSummer());
+        assertFalse(response.getTemplate().isWinter());
+        assertTrue(response.getUnits() >= 120);
+        assertEquals("machine learning", response.getChosenField());
+        assertEquals(templateService.getTemplate("CS-4YEAR-HEAVY-ML-2024"), response.getTemplate());
+    }
+
+    @Test
+    void shouldReturnHeavyWDRoadmap() {
+        RoadmapRequestDTO request = new RoadmapRequestDTO(4, "heavy", false, false, "web development");
+        RoadmapResponseDTO response = road2CSService.generateResponse(request);
+        assertNotNull(response);
+        assertEquals(4, response.getYears());
+        assertEquals("heavy", response.getWorkload());
+        assertFalse(response.getTemplate().isSummer());
+        assertFalse(response.getTemplate().isWinter());
+        assertTrue(response.getUnits() >= 120);
+        assertEquals("web development", response.getChosenField());
+        assertEquals(templateService.getTemplate("CS-4YEAR-HEAVY-WD-2024"), response.getTemplate());
+    }
+
+    @Test
+    void shouldReturn4YearDefaultMediumRoadmap() {
         RoadmapRequestDTO request = new RoadmapRequestDTO(4, "medium", false, false, "nothing");
         RoadmapResponseDTO response = road2CSService.generateResponse(request);
         assertNotNull(response);
@@ -78,8 +106,37 @@ class Road2CsApplicationTests {
         assertEquals("medium", response.getWorkload());
         assertFalse(response.getTemplate().isSummer());
         assertFalse(response.getTemplate().isWinter());
-        assertTrue(response.getUnits() >= 90);
-        assertEquals(templateService.getTemplate("CS-4YEAR-MEDIUM-2024"), response.getTemplate());
+        assertTrue(response.getUnits() >= 120);
+        assertEquals(templateService.getTemplate("CS-4YEAR-MEDIUM-SE-2024"), response.getTemplate());
+    }
+
+
+    @Test
+    void shouldReturn4YearMLMediumRoadmap() {
+        RoadmapRequestDTO request = new RoadmapRequestDTO(4, "medium", false, false, "machine learning");
+        RoadmapResponseDTO response = road2CSService.generateResponse(request);
+        assertNotNull(response);
+        assertEquals(4, response.getYears());
+        assertEquals("medium", response.getWorkload());
+        assertFalse(response.getTemplate().isSummer());
+        assertFalse(response.getTemplate().isWinter());
+        assertTrue(response.getUnits() >= 120);
+        assertEquals("machine learning", response.getChosenField());
+        assertEquals(templateService.getTemplate("CS-4YEAR-MEDIUM-ML-2024"), response.getTemplate());
+    }
+
+    @Test
+    void shouldReturn4YearWDMediumRoadmap() {
+        RoadmapRequestDTO request = new RoadmapRequestDTO(4, "medium", false, false, "web development");
+        RoadmapResponseDTO response = road2CSService.generateResponse(request);
+        assertNotNull(response);
+        assertEquals(4, response.getYears());
+        assertEquals("medium", response.getWorkload());
+        assertFalse(response.getTemplate().isSummer());
+        assertFalse(response.getTemplate().isWinter());
+        assertTrue(response.getUnits() >= 120);
+        assertEquals("web development", response.getChosenField());
+        assertEquals(templateService.getTemplate("CS-4YEAR-MEDIUM-WD-2024"), response.getTemplate());
     }
 
     @Test

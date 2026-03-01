@@ -21,26 +21,37 @@ public class Road2CSService {
     /* Helper Methods */
     //Fetching the proper template
     public Template fetchTemplate(RoadmapRequestDTO request) {
+
+        if (request == null
+                || request.getWorkload() == null || request.getWorkload().isBlank()
+                || request.getChosenField() == null || request.getChosenField().isBlank()
+                || request.getYears() <= 0) {
+            throw new IllegalArgumentException("Please fill in all necessary options.");
+        }
+
+        String workload = request.getWorkload().trim().toLowerCase();
+        String field = request.getChosenField().trim().toLowerCase();
+
         if (request.getYears() == 4) {
-            if (request.getWorkload().equals("heavy")) {
-                return switch (request.getChosenField()) {
-                    case "Machine Learning" -> template.getTemplate("CS-4YEAR-HEAVY-ML-2024");
-                    case "Web Development" -> template.getTemplate("CS-4YEAR-HEAVY-WD-2024");
-                    case "Game Development" -> template.getTemplate("CS-4YEAR-HEAVY-GD-2024");
-                    case "Data Science" -> template.getTemplate("CS-4YEAR-HEAVY-DS-2024");
-                    case "Cybersecurity" -> template.getTemplate("CS-4YEAR-HEAVY-CS-2024");
+            if (workload.equals("heavy")) {
+                return switch (field) {
+                    case "machine learning" -> template.getTemplate("CS-4YEAR-HEAVY-ML-2024");
+                    case "web development" -> template.getTemplate("CS-4YEAR-HEAVY-WD-2024");
+                    case "game development" -> template.getTemplate("CS-4YEAR-HEAVY-GD-2024");
+                    case "data science" -> template.getTemplate("CS-4YEAR-HEAVY-DS-2024");
+                    case "cybersecurity" -> template.getTemplate("CS-4YEAR-HEAVY-CS-2024");
 
                     //Default heavy template (Software Engineering)
                     default -> template.getTemplate("CS-4YEAR-HEAVY-SE-2024");
                 };
 
-            } else if (request.getWorkload().equals("medium")) {
-                return switch (request.getChosenField()) {
-                    case "Machine Learning" -> template.getTemplate("CS-4YEAR-MEDIUM-ML-2024");
-                    case "Web Development" -> template.getTemplate("CS-4YEAR-MEDIUM-WD-2024");
-                    case "Game Development" -> template.getTemplate("CS-4YEAR-MEDIUM-GD-2024");
-                    case "Data Science" -> template.getTemplate("CS-4YEAR-MEDIUM-DS-2024");
-                    case "Cybersecurity" -> template.getTemplate("CS-4YEAR-MEDIUM-CS-2024");
+            } else if (workload.equals("medium")) {
+                return switch (field) {
+                    case "machine learning" -> template.getTemplate("CS-4YEAR-MEDIUM-ML-2024");
+                    case "web development" -> template.getTemplate("CS-4YEAR-MEDIUM-WD-2024");
+                    case "game development" -> template.getTemplate("CS-4YEAR-MEDIUM-GD-2024");
+                    case "data science" -> template.getTemplate("CS-4YEAR-MEDIUM-DS-2024");
+                    case "cybersecurity" -> template.getTemplate("CS-4YEAR-MEDIUM-CS-2024");
 
                     //Default medium template (Software Engineering)
                     default -> template.getTemplate("CS-4YEAR-MEDIUM-SE-2024");
