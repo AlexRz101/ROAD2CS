@@ -57,18 +57,46 @@ public class Road2CSService {
                     default -> template.getTemplate("CS-4YEAR-MEDIUM-SE-2024");
                 };
 
-            } else if (request.getWorkload().equals("light")) {
-                return template.getTemplate("CS-4YEAR-LIGHT-2024");
+            } else if (workload.equals("light")) {
+                return switch (field) {
+                    case "machine learning" -> template.getTemplate("CS-4YEAR-LIGHT-ML-2024");
+                    case "web development" -> template.getTemplate("CS-4YEAR-LIGHT-WD-2024");
+                    case "game development" -> template.getTemplate("CS-4YEAR-LIGHT-GD-2024");
+                    case "data science" -> template.getTemplate("CS-4YEAR-LIGHT-DS-2024");
+                    case "cybersecurity" -> template.getTemplate("CS-4YEAR-LIGHT-CS-2024");
+
+                    //Default light template (Software Engineering)
+                    default -> template.getTemplate("CS-4YEAR-LIGHT-SE-2024");
+                };
             }
 
         } else if (request.getYears() == 5) {
-            if (request.getWorkload().equals("light")) {
-                return template.getTemplate("CS-5YEAR-LIGHT-2024");
-            }
+            if (workload.equals("light")) {
+                return switch (field) {
+                    case "machine learning" -> template.getTemplate("CS-5YEAR-LIGHT-ML-2024");
+                    case "web development" -> template.getTemplate("CS-5YEAR-LIGHT-WD-2024");
+                    case "game development" -> template.getTemplate("CS-5YEAR-LIGHT-GD-2024");
+                    case "data science" -> template.getTemplate("CS-5YEAR-LIGHT-DS-2024");
+                    case "cybersecurity" -> template.getTemplate("CS-5YEAR-LIGHT-CS-2024");
+
+                    //Default light template (Software Engineering)
+                    default -> template.getTemplate("CS-5YEAR-LIGHT-SE-2024");
+                };
+            };
 
         } else if (request.getYears() == 6) {
-            return template.getTemplate("CS-6Year-PT-2024");
-            
+            if (workload.equals("light")) {
+                return switch (field) {
+                    case "machine learning" -> template.getTemplate("CS-PART-TIME-ML-2024");
+                    case "web development" -> template.getTemplate("CS-PART-TIME-WD-2024");
+                    case "game development" -> template.getTemplate("CS-PART-TIME-GD-2024");
+                    case "data science" -> template.getTemplate("CS-PART-TIME-DS-2024");
+                    case "cybersecurity" -> template.getTemplate("CS-PART-TIME-CS-2024");
+
+                    //Default light template (Software Engineering)
+                    default -> template.getTemplate("CS-PART-TIME-SE-2024");
+                };
+            };
         }
 
         //Default to error
