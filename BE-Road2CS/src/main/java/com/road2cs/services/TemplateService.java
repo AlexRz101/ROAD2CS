@@ -62,17 +62,43 @@ public class TemplateService {
 
     private Template create4YearLightTemplate(String track, String trackName) {
         Map<String, Semester> sems = getSemestersByPrefix("4YearLightSem", 10);
-        sems.put("sem7", semesterService.getSemester("4YearLightSem" + track + "11"));
-        sems.put("sem8", semesterService.getSemester("4YearLightSem" + track + "12"));
+        sems.put("sem11", semesterService.getSemester("4YearLightSem" + track + "11"));
+        sems.put("sem12", semesterService.getSemester("4YearLightSem" + track + "12"));
 
         return new Template(
                 "CS-4YEAR-LIGHT-" + track + "-2024",
                 "4 Year Light - " + trackName,
-                4, "light", false, false,
+                4, "light", true, true,
                 sems.values()
         );
     }
 
+    private Template create5YearLightTemplate(String track, String trackName) {
+        Map<String, Semester> sems = getSemestersByPrefix("5YearLightSem", 8);
+        sems.put("sem9", semesterService.getSemester("5YearLightSem" + track + "9"));
+        sems.put("sem10", semesterService.getSemester("5YearLightSem" + track + "10"));
+
+        return new Template(
+                "CS-5YEAR-LIGHT-" + track + "-2024",
+                "5 Year Light - " + trackName,
+                5, "light", false, false,
+                sems.values()
+        );
+    }
+
+    private Template createPartTimeTemplate(String track, String trackName) {
+        Map<String, Semester> sems = getSemestersByPrefix("ptSem", 10);
+        sems.put("sem11", semesterService.getSemester("ptSem" + track + "11"));
+        sems.put("sem12", semesterService.getSemester("ptSem" + track + "12"));
+        sems.put("sem13", semesterService.getSemester("ptSem" + track + "13"));
+
+        return new Template(
+                "CS-PART-TIME-" + track + "-2024",
+                "5 Part-Time - " + trackName,
+                6, "part-time", false, false,
+                sems.values()
+        );
+    }
 
     /* Creating Templates */
     private void initializeTemplates() {
@@ -100,31 +126,22 @@ public class TemplateService {
         templates.put("CS-4YEAR-LIGHT-CS-2024", create4YearLightTemplate("CS", "Cybersecurity"));
         templates.put("CS-4YEAR-LIGHT-SE-2024", create4YearLightTemplate("SE", "Software Engineering"));
 
-        Template regLightTemplate = new Template(
-                "CS-5YEAR-light-2024",
-                "light 5 year plan",
-                4,
-                "light",
-                false,
-                false,
-                getSemestersByPrefix("regLightSem", 10).values()  //Get Map, then convert to Collection
-        );
+        //5 Year Light - one per track
+        templates.put("CS-5YEAR-LIGHT-ML-2024", create5YearLightTemplate("ML", "Machine Learning"));
+        templates.put("CS-5YEAR-LIGHT-WD-2024", create5YearLightTemplate("WD", "Web Development"));
+        templates.put("CS-5YEAR-LIGHT-GD-2024", create5YearLightTemplate("GD", "Game Development"));
+        templates.put("CS-5YEAR-LIGHT-DS-2024", create5YearLightTemplate("DS", "Data Science"));
+        templates.put("CS-5YEAR-LIGHT-CS-2024", create5YearLightTemplate("CS", "Cybersecurity"));
+        templates.put("CS-5YEAR-LIGHT-SE-2024", create5YearLightTemplate("SE", "Software Engineering"));
 
-        Template partTimeTemplate = new Template(
-                "CS-6YEAR-PT-2024",
-                "light 6 year plan",
-                6,
-                "light",
-                false,
-                false,
-                getSemestersByPrefix("ptSem", 12).values()  //Get Map, then convert to Collection
-        );
+        //6 Year Part Time - one per track
+        templates.put("CS-PART-TIME-ML-2024", createPartTimeTemplate("ML", "Machine Learning"));
+        templates.put("CS-PART-TIME-WD-2024", createPartTimeTemplate("WD", "Web Development"));
+        templates.put("CS-PART-TIME-GD-2024", createPartTimeTemplate("GD", "Game Development"));
+        templates.put("CS-PART-TIME-DS-2024", createPartTimeTemplate("DS", "Data Science"));
+        templates.put("CS-PART-TIME-CS-2024", createPartTimeTemplate("CS", "Cybersecurity"));
+        templates.put("CS-PART-TIME-SE-2024", createPartTimeTemplate("SE", "Software Engineering"));
 
-        templates.put("CS-5YEAR-LIGHT-2024", regLightTemplate);
-        templates.put("CS-6YEAR-PT-2024", partTimeTemplate);
-        /*
-        Create more templates like
-         */
     }
 
     //Getter methods

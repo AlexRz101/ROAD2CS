@@ -34,28 +34,28 @@ public class AppRunner implements CommandLineRunner {
         System.out.println("------------------------");
 
         //Get the heavy template and print it
-        Template lightTemplateML = templateService.getTemplate("CS-4YEAR-LIGHT-ML-2024");
-        Template lightTemplateWD = templateService.getTemplate("CS-4YEAR-LIGHT-WD-2024");
-        Template lightTemplateGD = templateService.getTemplate("CS-4YEAR-LIGHT-GD-2024");
-        Template lightTemplateDS = templateService.getTemplate("CS-4YEAR-LIGHT-DS-2024");
-        Template lightTemplateCS = templateService.getTemplate("CS-4YEAR-LIGHT-CS-2024");
-        Template lightTemplateSE = templateService.getTemplate("CS-4YEAR-LIGHT-SE-2024");
+        Template ptTemplateML = templateService.getTemplate("CS-PART-TIME-ML-2024");
+        Template ptTemplateWD = templateService.getTemplate("CS-PART-TIME-WD-2024");
+        Template ptTemplateGD = templateService.getTemplate("CS-PART-TIME-GD-2024");
+        Template ptTemplateDS = templateService.getTemplate("CS-PART-TIME-DS-2024");
+        Template ptTemplateCS = templateService.getTemplate("CS-PART-TIME-CS-2024");
+        Template ptTemplateSE = templateService.getTemplate("CS-PART-TIME-SE-2024");
 
-        System.out.println(lightTemplateML);
+        System.out.println(ptTemplateML);
         System.out.println();
         System.out.println();
-        System.out.println(lightTemplateWD);
+        System.out.println(ptTemplateWD);
         System.out.println();
         System.out.println();
-        System.out.println(lightTemplateGD);
+        System.out.println(ptTemplateGD);
         System.out.println();
         System.out.println();
-        System.out.println(lightTemplateDS);
+        System.out.println(ptTemplateDS);
         System.out.println();
         System.out.println();
-        System.out.println(lightTemplateCS);
+        System.out.println(ptTemplateCS);
         System.out.println();
         System.out.println();
-        System.out.println(lightTemplateSE);
+        System.out.println(ptTemplateSE);
     }
 }

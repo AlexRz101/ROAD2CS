@@ -9,36 +9,85 @@ public class FiveYearLightSemesters {
 
     public static void register(Map<String, Semester> semesters, CourseService courseService) {
 
-        /* Light semesters: 10 normal semesters */
-        semesters.put("regLightSem1", createSemester(courseService, 1, "Fall",
-                "COMP110-L", "MATH150A-L", "ENG115"));
+        //Semester 1 - Fall (12 units)
+        semesters.put("5YearLightSem1", createSemester(courseService, 1, "Fall",
+                "COMP110-L", "MATH150A-L", "PHIL230"));
 
-        semesters.put("regLightSem2", createSemester(courseService, 2, "Spring",
+        //Semester 2 - Spring (13 units)
+        semesters.put("5YearLightSem2", createSemester(courseService, 2, "Spring",
                 "COMP182-L", "COMP122-L", "MATH150B-L"));
 
-        semesters.put("regLightSem3", createSemester(courseService, 3, "Fall",
-                "PHIL230", "COMP222", "COMS151","GEOL101", "GEOL102"));
+        //Semester 3 - Fall (13 units)
+        semesters.put("5YearLightSem3", createSemester(courseService, 3, "Fall",
+                "COMP282", "COMP222", "COMP256-L", "COMS151"));
 
-        semesters.put("regLightSem4", createSemester(courseService, 4, "Spring",
-                "COMP256-L", "COMP282", "ECON101", "POLS155"));
+        //Semester 4 - Spring (12 units)
+        semesters.put("5YearLightSem4", createSemester(courseService, 4, "Spring",
+                "ECON101", "MATH262", "ENG115", "POLS155"));
 
-        semesters.put("regLightSem5", createSemester(courseService, 5, "Fall",
-                "COMP322-L", "COMP310", "MATH340", "MUS107"));
+        //Semester 5 - Fall (12 units)
+        semesters.put("5YearLightSem5", createSemester(courseService, 5, "Fall",
+                "MATH340", "BIOL106-L", "GEOL101", "GEOL102"));
 
-        semesters.put("regLightSem6", createSemester(courseService, 6, "Spring",
-                "COMP333", "COMP380-L", "COMP324", "HIST271"));
+        //Semester 6 - Spring (13 units)
+        semesters.put("5YearLightSem6", createSemester(courseService, 6, "Spring",
+                "COMP322-L", "COMP310", "COMP333", "AAS100"));
 
-        semesters.put("regLightSem7", createSemester(courseService, 7, "Fall",
-                "MATH262", "BIOL106-L", "GEOG321", "AAS100"));
+        //Semester 7 - Fall (13 units)
+        semesters.put("5YearLightSem7", createSemester(courseService, 7, "Fall",
+                "COMP380-L", "HIST271", "COMP324", "MUS107"));
 
-        semesters.put("regLightSem8", createSemester(courseService, 8, "Spring",
-                "COMP440", "COMS356"));
+        //Semester 8 - Spring (12 units)
+        semesters.put("5YearLightSem8", createSemester(courseService, 8, "Spring",
+                "COMP440", "COMP482", "GEOG321", "COMS356"));
 
-        semesters.put("regLightSem9", createSemester(courseService, 9, "Fall",
-                "COMP490-L", "MATH482"));
+        //ML - Fall (12 units)
+        semesters.put("5YearLightSemML9", createSemester(courseService, 9, "Fall",
+                "COMP490-L", "COMP442", "COMP424", "COMP429"));
 
-        semesters.put("regLightSem10", createSemester(courseService, 10, "Spring",
-                "COMP491-L"));
+        //ML - Spring (12 units)
+        semesters.put("5YearLightSemML10", createSemester(courseService, 10, "Spring",
+                "COMP491-L", "COMP542", "COMP545", "COMP569"));
+
+        //WD - Fall (12 units)
+        semesters.put("5YearLightSemWD9", createSemester(courseService, 9, "Fall",
+                "COMP490-L", "COMP484", "COMP484L", "COMP424", "COMP429"));
+
+        //WD - Spring (12 units)
+        semesters.put("5YearLightSemWD10", createSemester(courseService, 10, "Spring",
+                "COMP491-L", "COMP584", "COMP585", "COMP545"));
+
+        //Game Dev - Fall (12 units)
+        semesters.put("5YearLightSemGD9", createSemester(courseService, 9, "Fall",
+                "COMP490-L", "COMP467", "COMP429", "COMP485"));
+
+        //Game Dev - Spring (12 units)
+        semesters.put("5YearLightSemGD10", createSemester(courseService, 10, "Spring",
+                "COMP491-L", "COMP585", "COMP586", "COMP565"));
+
+        //Data Science - Fall (12 units)
+        semesters.put("5YearLightSemDS9", createSemester(courseService, 9, "Fall",
+                "COMP490-L", "COMP440", "COMP424", "COMP429"));
+
+        //Data Science - Spring (12 units)
+        semesters.put("5YearLightSemDS10", createSemester(courseService, 10, "Spring",
+                "COMP491-L", "COMP541", "COMP529", "COMP529L", "COMP502"));
+
+        //Cybersecurity - Fall (12 units)
+        semesters.put("5YearLightSemCS9", createSemester(courseService, 9, "Fall",
+                "COMP490-L", "COMP424", "COMP429", "COMP545"));
+
+        //Cybersecurity - Spring (13 units)
+        semesters.put("5YearLightSemCS10", createSemester(courseService, 10, "Spring",
+                "COMP491-L", "COMP522", "COMP583", "COMP529", "COMP529L"));
+
+        //Software Engineering - Fall (12 units)
+        semesters.put("5YearLightSemSE9", createSemester(courseService, 9, "Fall",
+                "COMP490-L", "COMP440", "COMP424", "COMP429"));
+
+        //Software Engineering - Spring (12 units)
+        semesters.put("5YearLightSemSE10", createSemester(courseService, 10, "Spring",
+                "COMP491-L", "COMP589", "COMP583", "COMP586"));
     }
 
     private static Semester createSemester(CourseService courseService, int number,
@@ -50,4 +99,3 @@ public class FiveYearLightSemesters {
         return semester;
     }
 }
-
