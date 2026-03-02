@@ -85,8 +85,8 @@ public class Road2CSService {
             };
 
         } else if (request.getYears() == 6) {
-            if (workload.equals("light")) {
-                return switch (field) {
+                if (workload.equals("light")) {
+                    return switch (field) {
                     case "machine learning" -> template.getTemplate("CS-PART-TIME-ML-2024");
                     case "web development" -> template.getTemplate("CS-PART-TIME-WD-2024");
                     case "game development" -> template.getTemplate("CS-PART-TIME-GD-2024");

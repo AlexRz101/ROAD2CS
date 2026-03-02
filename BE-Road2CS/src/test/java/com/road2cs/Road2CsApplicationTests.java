@@ -51,6 +51,12 @@ class Road2CsApplicationTests {
     }
 
     @Test
+    void shouldThrowOnInvalidTemplate4() {
+        RoadmapRequestDTO request = new RoadmapRequestDTO(100, "invalid", true, false, "gigachad");
+        assertThrows(IllegalArgumentException.class, () -> road2CSService.generateResponse(request));
+    }
+
+    @Test
     void shouldThrowOnEmptyRequest() {
         RoadmapRequestDTO request = new RoadmapRequestDTO();
         assertThrows(IllegalArgumentException.class, () -> road2CSService.generateResponse(request));
@@ -148,9 +154,23 @@ class Road2CsApplicationTests {
         assertEquals("light", response.getWorkload());
         assertTrue(response.getTemplate().isSummer());
         assertTrue(response.getTemplate().isWinter());
-        assertTrue(response.getUnits() >= 90);
-        assertEquals(templateService.getTemplate("CS-4YEAR-LIGHT-2024"), response.getTemplate());
+        assertTrue(response.getUnits() >= 120);
+        assertEquals(templateService.getTemplate("CS-4YEAR-LIGHT-SE-2024"), response.getTemplate());
     }
+
+    @Test
+    void shouldReturn4YearCSLightRoadmap() {
+        RoadmapRequestDTO request = new RoadmapRequestDTO(4, "light", true, true, "cYBERSECurity");
+        RoadmapResponseDTO response = road2CSService.generateResponse(request);
+        assertNotNull(response);
+        assertEquals(4, response.getYears());
+        assertEquals("light", response.getWorkload());
+        assertTrue(response.getTemplate().isSummer());
+        assertTrue(response.getTemplate().isWinter());
+        assertTrue(response.getUnits() >= 120);
+        assertEquals(templateService.getTemplate("CS-4YEAR-LIGHT-CS-2024"), response.getTemplate());
+    }
+
 
     @Test
     void shouldReturn5YearLightRoadmap() {
@@ -161,7 +181,46 @@ class Road2CsApplicationTests {
         assertEquals("light", response.getWorkload());
         assertFalse(response.getTemplate().isSummer());
         assertFalse(response.getTemplate().isWinter());
-        assertTrue(response.getUnits() >= 90);
-        assertEquals(templateService.getTemplate("CS-5YEAR-LIGHT-2024"), response.getTemplate());
+        assertTrue(response.getUnits() >= 120);
+        assertEquals(templateService.getTemplate("CS-5YEAR-LIGHT-SE-2024"), response.getTemplate());
+    }
+
+    @Test
+    void shouldReturn5YearDSLightRoadmap() {
+        RoadmapRequestDTO request = new RoadmapRequestDTO(5, "light", false, false, "dATA science");
+        RoadmapResponseDTO response = road2CSService.generateResponse(request);
+        assertNotNull(response);
+        assertEquals(5, response.getYears());
+        assertEquals("light", response.getWorkload());
+        assertFalse(response.getTemplate().isSummer());
+        assertFalse(response.getTemplate().isWinter());
+        assertTrue(response.getUnits() >= 120);
+        assertEquals(templateService.getTemplate("CS-5YEAR-LIGHT-DS-2024"), response.getTemplate());
+    }
+
+    @Test
+    void shouldReturnPTLightRoadmap() {
+        RoadmapRequestDTO request = new RoadmapRequestDTO(6, "light", false, false, "joemama");
+        RoadmapResponseDTO response = road2CSService.generateResponse(request);
+        assertNotNull(response);
+        assertEquals(6, response.getYears());
+        assertEquals("light", response.getWorkload());
+        assertFalse(response.getTemplate().isSummer());
+        assertFalse(response.getTemplate().isWinter());
+        assertTrue(response.getUnits() >= 120);
+        assertEquals(templateService.getTemplate("CS-PART-TIME-SE-2024"), response.getTemplate());
+    }
+
+    @Test
+    void shouldReturnPTGDLightRoadmap() {
+        RoadmapRequestDTO request = new RoadmapRequestDTO(6, "light", false, false, "game DEVELOPMENT");
+        RoadmapResponseDTO response = road2CSService.generateResponse(request);
+        assertNotNull(response);
+        assertEquals(6, response.getYears());
+        assertEquals("light", response.getWorkload());
+        assertFalse(response.getTemplate().isSummer());
+        assertFalse(response.getTemplate().isWinter());
+        assertTrue(response.getUnits() >= 120);
+        assertEquals(templateService.getTemplate("CS-PART-TIME-GD-2024"), response.getTemplate());
     }
 }

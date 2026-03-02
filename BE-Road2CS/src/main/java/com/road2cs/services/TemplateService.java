@@ -94,7 +94,7 @@ public class TemplateService {
 
         return new Template(
                 "CS-PART-TIME-" + track + "-2024",
-                "5 Part-Time - " + trackName,
+                "Part-Time - " + trackName,
                 6, "part-time", false, false,
                 sems.values()
         );
