@@ -4,12 +4,15 @@ import com.road2cs.dtos.*;
 import com.road2cs.services.*;
 import com.road2cs.services.RateLimitService;
 import io.github.bucket4j.Bucket;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@Tag(name = "Roadmap endpoints", description = "Only controller used for Road2CS thus far")
 @CrossOrigin(origins = "http://localhost:5173/")
 @RestController
 @RequestMapping("/api/roadmap")
@@ -24,9 +27,9 @@ public class Road2CSController {
         this.rateLimitService = rateLimitService;
     }
 
-    /*
-    Probably only one POST mapping to fetch and display templates
-    */
+    @Operation(summary = "Generate a roadmap template",
+            description = "An in house template is fetched and returned to the user"
+    )
     @PostMapping
     public ResponseEntity<RoadmapResponseDTO> returnTemplate(
             @Valid @RequestBody RoadmapRequestDTO request,
