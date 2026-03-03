@@ -28,9 +28,9 @@ export default function UserInput() {
                     <option value="medium">Medium</option>
                     <option value="heavy">Heavy</option>
                 </select>
-                <label for="winter-checkbox">Winter</label>
+                <label htmlfor="winter-checkbox">Winter</label>
                 <input id="winter-checkbox" checked={winter} onChange={(e) => setWinter(prev => !prev)} type="checkbox"></input>
-                <label for="summer-checkbox">Summer</label>
+                <label htmlfor="summer-checkbox">Summer</label>
                 <input id="summer-checkbox" checked={summer} onChange={(e) => setSummer(prev => !prev)} type="checkbox"></input>
                 <button>Submit</button>
             </form>
