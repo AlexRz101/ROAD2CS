@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 export default function UserInput() {
     const [years, setYears] = useState('4');
     const [workload, setWorkload] = useState('light');
@@ -13,7 +14,7 @@ export default function UserInput() {
 
     return (
 
-        <div>
+        <div className="flex justify-around">
             <form onSubmit={submit}>
                 <label>Years:</label>
                 <input
