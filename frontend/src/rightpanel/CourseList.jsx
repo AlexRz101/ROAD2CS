@@ -1,7 +1,8 @@
 export default function CourseList() {
     return (
         <div>
-            {/*Course List placeholder*/}
+            {/*Course List placeholder
+            Accordian component will be used here*/}
             <p>Semester 1</p>
             <p>Semester 2</p>
             <p>Semester 3</p>

@@ -7,9 +7,9 @@ export default function Header() {
         <div className="border-b border-gray-600">
             <div className="flex justify-between items-center">
                 <div className="">
-                    <a href='https://www.csun.edu'> <img src='/CSUN_logo.svg' className="h-16 m-16"></img> </a>
+                    <a href='https://www.csun.edu'> <img src='/CSUN_logo.svg' className="h-16 mx-16 my-10"></img> </a>
                 </div>
-                <div className="m-16 text-Montserrat"> 
+                <div className="mx-16 my-10 text-Montserrat"> 
                     <div>{name}</div>
                     <div>{studentID}</div>
                     <div>{major}</div>

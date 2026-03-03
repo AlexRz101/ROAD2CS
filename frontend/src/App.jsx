@@ -6,14 +6,14 @@ import Roadmap from './pages/Roadmap.jsx';
 
 function App() {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen overflow-hidden">
       <Header />
 
       {/* Main Layout */}
       <div className="flex flex-1"> 
 
         {/* Left Side (Roadmap) */}
-        <div className="flex-[3] border-r border-gray-600 p-4">
+        <div className="flex-[3] border-r border-gray-600 p-4 overflow-hidden">
           <Roadmap />
         </div>
 
