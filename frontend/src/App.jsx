@@ -20,7 +20,7 @@ function App() {
         {/* Right Side Panel */}
         <div className="flex-[1.5] flex flex-col">
 
-          <div className="border-b border-gray-600 p-10">
+          <div className="border-b border-gray-600 p-4">
             <UserChoices />
           </div>
 
