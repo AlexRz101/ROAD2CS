@@ -1,25 +1,26 @@
-import Header from './components/Header.jsx'
-import Footer from './components/Footer.jsx'
-import UserChoices from './rightpanel/UserInput.jsx'
-import CourseList from './rightpanel/CourseList.jsx'
-import Roadmap from './pages/Roadmap.jsx'
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
+import UserChoices from './rightpanel/UserInput.jsx';
+import CourseList from './rightpanel/CourseList.jsx';
+import Roadmap from './pages/Roadmap.jsx';
 
 function App() {
   return (
     <div className="flex flex-col h-screen">
       <Header />
-      {/* Main Layout */}
-      <div className="flex flex-1">
 
-        {/* Left Side */}
-        <div className="w-72 border-r">
+      {/* Main Layout */}
+      <div className="flex flex-1"> 
+
+        {/* Left Side (Roadmap) */}
+        <div className="flex-[3] border-r border-gray-600 p-4">
           <Roadmap />
         </div>
 
-        {/* Right Side */}
-        <div className="flex flex-col flex-1">
+        {/* Right Side Panel */}
+        <div className="flex-[1.5] flex flex-col">
 
-          <div className="border-b p-4">
+          <div className="border-b border-gray-600 p-10">
             <UserChoices />
           </div>
 
@@ -28,9 +29,10 @@ function App() {
           </div>
         </div>
       </div>
+
       <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
