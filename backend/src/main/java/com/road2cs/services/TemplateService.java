@@ -90,7 +90,6 @@ public class TemplateService {
         Map<String, Semester> sems = getSemestersByPrefix("ptSem", 10);
         sems.put("sem11", semesterService.getSemester("ptSem" + track + "11"));
         sems.put("sem12", semesterService.getSemester("ptSem" + track + "12"));
-        sems.put("sem13", semesterService.getSemester("ptSem" + track + "13"));
 
         return new Template(
                 "CS-PART-TIME-" + track + "-2024",

@@ -12,13 +12,13 @@ public class HeavySemesters {
         /* Heavy Load Path - 4 Years (17-18 units per semester) */
         //Semester 1 - Fall (18 units)
         semesters.put("heavySem1", createSemester(courseService, 1, "Fall",
-                "COMP110-L", "MATH150A-L", "COMS151", "ENG115", "MUS107"));
+                "COMP110-L", "MATH150A", "COMS151", "ENG115", "MUS107"));
 
         //Semester 2 - Spring (16 units)
         semesters.put("heavySem2", createSemester(courseService, 2, "Spring",
-                "COMP182-L", "COMP122-L", "MATH150B-L", "PHIL230"));
+                "COMP182-L", "COMP122-L", "MATH150B", "PHIL230"));
 
-        //Semester 3 - Fall (7 units)
+        //Semester 3 - Fall (17 units)
         semesters.put("heavySem3", createSemester(courseService, 3, "Fall",
                 "COMP282", "COMP222", "COMP256-L", "MATH262", "GEOL101", "GEOL102"));
 
@@ -28,15 +28,15 @@ public class HeavySemesters {
 
         //Semester 5 - Fall (17 units)
         semesters.put("heavySem5", createSemester(courseService, 5, "Fall",
-                "COMP322-L", "COMP310", "MATH340", "GEOG321", "COMS356"));
+                "COMP322-L", "COMP310", "MATH340", "GEOG321", "ANTH150"));
 
         //Semester 6 - Spring (15 units)
         semesters.put("heavySem6", createSemester(courseService, 6, "Spring",
-                "COMP333", "COMP380-L", "COMP324", "MATH482", "COMP440"));
+                "COMP333", "COMP380-L", "COMP324", "COMP482", "COMS356"));
 
         /* HeavySemester Senior Field Semesters */
 
-        //ML Sem1 - Fall (12 units)
+        //ML Sem1 - Fall (15 units)
         semesters.put("heavySemML7", createSemester(courseService, 7, "Fall",
                 "COMP490-L", "COMP442", "COMP424", "COMP429"));
 
@@ -62,7 +62,7 @@ public class HeavySemesters {
 
         //Data Science Sem1 - Fall
         semesters.put("heavySemDS7", createSemester(courseService, 7, "Fall",
-                "COMP490-L", "COMP541", "COMP502", "COMP482"));
+                "COMP490-L", "COMP541", "COMP502", "COMP440"));
 
         //Data Science Sem2 - Spring
         semesters.put("heavySemDS8", createSemester(courseService, 8, "Spring",

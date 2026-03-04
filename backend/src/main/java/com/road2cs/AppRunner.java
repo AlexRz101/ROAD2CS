@@ -33,7 +33,6 @@ public class AppRunner implements CommandLineRunner {
         System.out.println("Road2CS Project Baby!!!");
         System.out.println("------------------------");
 
-        /*
         //Get the heavy template and print it
         Template ptTemplateML = templateService.getTemplate("CS-PART-TIME-ML-2024");
         Template ptTemplateWD = templateService.getTemplate("CS-PART-TIME-WD-2024");
@@ -58,6 +57,6 @@ public class AppRunner implements CommandLineRunner {
         System.out.println();
         System.out.println();
         System.out.println(ptTemplateSE);
-         */
+
     }
 }

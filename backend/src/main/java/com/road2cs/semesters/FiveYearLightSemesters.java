@@ -11,11 +11,11 @@ public class FiveYearLightSemesters {
 
         //Semester 1 - Fall (12 units)
         semesters.put("5YearLightSem1", createSemester(courseService, 1, "Fall",
-                "COMP110-L", "MATH150A-L", "PHIL230"));
+                "COMP110-L", "MATH150A", "PHIL230"));
 
         //Semester 2 - Spring (13 units)
         semesters.put("5YearLightSem2", createSemester(courseService, 2, "Spring",
-                "COMP182-L", "COMP122-L", "MATH150B-L"));
+                "COMP182-L", "COMP122-L", "MATH150B"));
 
         //Semester 3 - Fall (13 units)
         semesters.put("5YearLightSem3", createSemester(courseService, 3, "Fall",
@@ -31,15 +31,15 @@ public class FiveYearLightSemesters {
 
         //Semester 6 - Spring (13 units)
         semesters.put("5YearLightSem6", createSemester(courseService, 6, "Spring",
-                "COMP322-L", "COMP310", "COMP333", "AAS100"));
+                "COMP322-L", "ANTH150", "COMP333", "AAS100"));
 
         //Semester 7 - Fall (13 units)
         semesters.put("5YearLightSem7", createSemester(courseService, 7, "Fall",
-                "COMP380-L", "HIST271", "COMP324", "MUS107"));
+                "COMP380-L", "HIST271","COMP310", "MUS107"));
 
         //Semester 8 - Spring (12 units)
         semesters.put("5YearLightSem8", createSemester(courseService, 8, "Spring",
-                "COMP440", "COMP482", "GEOG321", "COMS356"));
+                "COMP324", "COMP482", "GEOG321", "COMS356"));
 
         //ML - Fall (12 units)
         semesters.put("5YearLightSemML9", createSemester(courseService, 9, "Fall",

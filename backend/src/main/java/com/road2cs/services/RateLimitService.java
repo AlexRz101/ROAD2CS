@@ -20,8 +20,8 @@ public class RateLimitService {
     private Bucket createNewBucket() {
         //5 requests per hour
         Bandwidth limit = Bandwidth.builder()
-                .capacity(5) //total amount of requests
-                .refillIntervally(5, Duration.ofMinutes(1)) //refill all requests per minute
+                .capacity(10) //total amount of requests
+                .refillIntervally(10, Duration.ofMinutes(1)) //refill all requests per minute
                 .build(); //built bucket
 
         return Bucket.builder()

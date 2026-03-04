@@ -72,8 +72,8 @@ public class CourseService {
         /* Math courses */
         courses.put("MATH102", new Course("MATH 102", "Pre-Calculus I", 3));
         courses.put("MATH105-L", new Course("MATH 105/L", "Pre-Calculus II", 4));
-        courses.put("MATH150A-L", new Course("MATH 150A/L", "Calculus I", 5));
-        courses.put("MATH150B-L", new Course("MATH 150B/L", "Calculus II", 5));
+        courses.put("MATH150A", new Course("MATH 150A", "Calculus I", 5));
+        courses.put("MATH150B", new Course("MATH 150B", "Calculus II", 5));
         courses.put("MATH262", new Course("MATH 262", "Linear Algebra", 3));
         courses.put("MATH340", new Course("MATH 340", "Introduction to Probability and Statistics", 4));
         courses.put("MATH482", new Course("MATH 482", "Combinational Algorithms", 3));
