@@ -1,82 +1,98 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Accordion from "../components/Accordion.jsx";
 
-//Placeholder courses to preview accordions
-const accordionData = [
-    {id: 1, title: "Comp 110+L", content: "Units: 4 \nRequirements\nnone"},
-    {id: 2, title: "Math 150A", content: "Units: 5 \nRequirements\nnone"},
-    {id: 3, title: "Comp 182+L", content: "Units: 4 \nRequirements\nComp 110+L"},
-    {id: 4, title: "Comp 122+L", content: "Units: 4 \nRequirements\nComp 110+L"},
-    {id: 5, title: "Phil 230", content: "Units: 3 \nRequirements\nnone"},
-    {id: 6, title: "Math 150B", content: "Units: 5 \nRequirements\nMath150A"},
-    {id: 7, title: "Course 7", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 8, title: "Course 8", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 9, title: "Course 9", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 10, title: "Course 10", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 11, title: "Course 11", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 12, title: "Course 12", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 13, title: "Course 13", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 14, title: "Course 14", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 15, title: "Course 15", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 16, title: "Course 16", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 17, title: "Course 17", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 18, title: "Course 18", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 19, title: "Course 19", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 20, title: "Course 20", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 21, title: "Course 21", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 22, title: "Course 22", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 23, title: "Course 23", content: "Units: 0 \nRequirements\nn/a"},
-    {id: 24, title: "Course 24", content: "Units: 0 \nRequirements\nn/a"}
-]
+const COURSES_PER_PAGE = 8;
 
-export default function CourseList() {
+const placeholderCourses = [
+    {id: 1, title: "Comp 110+L", content: "Units: 4 \nRequirements\nnone", units: 4},
+    {id: 2, title: "Math 150A", content: "Units: 5 \nRequirements\nnone", units: 5},
+    {id: 3, title: "Comp 182+L", content: "Units: 4 \nRequirements\nComp 110+L", units: 4},
+    {id: 4, title: "Comp 122+L", content: "Units: 4 \nRequirements\nComp 110+L", units: 4},
+    {id: 5, title: "Phil 230", content: "Units: 3 \nRequirements\nnone", units: 3},
+    {id: 6, title: "Math 150B", content: "Units: 5 \nRequirements\nMath150A", units: 5},
+];
+
+export default function CourseList({ roadmapData }) {
     const [expandedId, setExpandedId] = useState(null);
+    const [page, setPage] = useState(0);
 
-    const col1 = accordionData.slice(0, 6);
-    const col2 = accordionData.slice(6, 12);
-    const col3 = accordionData.slice(12, 18);
+    // Reset when new data loads
+    useEffect(() => {
+        setPage(0);
+        setExpandedId(null);
+    }, [roadmapData]);
+
+    // Build courses from roadmapData if available, otherwise use placeholders
+    const activeCourses = roadmapData
+        ? roadmapData.template.semesters.flatMap(sem =>
+            Object.values(sem.courses).map(c => ({
+                id: c.courseId,
+                title: c.courseId,
+                content: `Units: ${c.credits}\nName: ${c.name}`,
+                units: c.credits
+            }))
+          )
+        : placeholderCourses;
+
+    const totalUnits = roadmapData
+        ? roadmapData.units
+        : placeholderCourses.reduce((sum, c) => sum + (c.units || 0), 0);
+
+    const totalPages = Math.ceil(activeCourses.length / COURSES_PER_PAGE);
+    const pageCourses = activeCourses.slice(page * COURSES_PER_PAGE, (page + 1) * COURSES_PER_PAGE);
+
+    const col1 = pageCourses.slice(0, 4);
+    const col2 = pageCourses.slice(4, 8);
 
     const toggleExpand = (id) => {
-        setExpandedId(expandedId === id ? null : id)
-    }
+        setExpandedId(expandedId === id ? null : id);
+    };
 
     return (
-        //Column 1, map all courses to it
-        <div className="flex gap-4">
-            <div className="flex flex-col space-y-2">
-                {col1.map((item) => (
-                    <Accordion
-                    key={item.id}
-                    {...item}
-                    isExpanded={expandedId === item.id}
-                    onToggle={() => toggleExpand(item.id)}
-                    />
+        <div className="flex flex-col gap-4">
+
+            {/* Total units */}
+            <div className="text-center font-bold text-lg">
+                Total Units: {totalUnits}
+            </div>
+
+            {/* Columns */}
+            <div className="flex justify-center gap-4">
+                {[col1, col2].map((col, i) => (
+                    <div key={i} className="flex flex-col space-y-2">
+                        {col.map((item) => (
+                            <Accordion
+                                key={item.id}
+                                {...item}
+                                isExpanded={expandedId === item.id}
+                                onToggle={() => toggleExpand(item.id)}
+                            />
+                        ))}
+                    </div>
                 ))}
             </div>
 
-            {/*Column 2, map all courses to it*/}
-            <div className="flex flex-col space-y-2">
-                {col2.map((item) => (
-                    <Accordion
-                    key={item.id}
-                    {...item}
-                    isExpanded={expandedId === item.id}
-                    onToggle={() => toggleExpand(item.id)}
-                    />
-                ))}
-            </div>
+            {/* Pagination */}
+            {totalPages > 1 && (
+                <div className="flex justify-center items-center gap-4">
+                    <button
+                        onClick={() => { setPage(p => p - 1); setExpandedId(null); }}
+                        disabled={page === 0}
+                        className="px-3 py-1 rounded-lg border border-gray-300 disabled:opacity-30"
+                    >
+                        ←
+                    </button>
+                    <span>Page {page + 1} of {totalPages}</span>
+                    <button
+                        onClick={() => { setPage(p => p + 1); setExpandedId(null); }}
+                        disabled={page === totalPages - 1}
+                        className="px-3 py-1 rounded-lg border border-gray-300 disabled:opacity-30"
+                    >
+                        →
+                    </button>
+                </div>
+            )}
 
-            {/*Column 3, map all courses to it*/}
-            <div className="flex flex-col space-y-2">
-                {col3.map((item) => (
-                    <Accordion
-                    key={item.id}
-                    {...item}
-                    isExpanded={expandedId === item.id}
-                    onToggle={() => toggleExpand(item.id)}
-                    />
-                ))}
-            </div>
         </div>
-    )
+    );
 }

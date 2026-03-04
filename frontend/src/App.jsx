@@ -3,11 +3,28 @@ import Footer from './components/Footer.jsx';
 import UserChoices from './rightpanel/UserInput.jsx';
 import CourseList from './rightpanel/CourseList.jsx';
 import Roadmap from './pages/Roadmap.jsx';
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
+import API from './api/index.js';
 
 function App() {
-
   const [planRequest, setPlanRequest] = useState(null);
+  const [roadmapData, setRoadmapData] = useState(null);
+
+  //Load default on mount
+  useEffect(() => {
+    const defaultRequest = {
+      years: 4,
+      workload: "medium",
+      chosenField: "software engineering",
+      winter: false,
+      summer: false
+    };
+    API.post('', defaultRequest)
+      .then((res) => setRoadmapData(res.data))
+      .catch((err) => console.error(err));
+  }, []); 
+
   return (
     <div className="flex flex-col h-screen overflow-hidden">
 
@@ -18,7 +35,7 @@ function App() {
 
         {/* Left Side (Roadmap) */}
         <div className="flex-[3] border-r border-gray-600 p-4 overflow-hidden">
-          <Roadmap planRequest={planRequest} />
+          <Roadmap planRequest={planRequest} onDataLoaded={setRoadmapData} roadmapData={roadmapData}/>
 
         </div>
 
@@ -30,7 +47,7 @@ function App() {
           </div>
 
           <div className="flex-1 overflow-y-auto p-4">
-            <CourseList />
+            <CourseList roadmapData={roadmapData}/>
           </div>
         </div>
       </div>

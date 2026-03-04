@@ -14,9 +14,7 @@ public class Semester {
     private int termNum; //which term it is
     private String termName; //fall/spring/summer/winter
 
-    @JsonIgnore
     private Map<String, Course> courses;  //courseId to Course
-    private int semUnits;
 
     //Constructor - initialize with empty HashMap
     public Semester(int termNum, String termName) {
@@ -72,6 +70,10 @@ public class Semester {
             total += course.getCredits();
         }
         return total;
+    }
+
+    public int getSemUnits() {
+        return getTotalCredits();
     }
 
     //Get course count

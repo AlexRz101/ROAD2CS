@@ -41,6 +41,7 @@ export default function UserInput( { onSubmit } ) {
                 <label>Workload: </label>
                 <select className="ml-2 w-max items-center 
                 rounded-lg shadow-md border border-gray-400" 
+                defaultValue="medium"
                 required onChange={(e) => setWorkload(e.target.value)}>
                     <option value="light">Light</option>
                     <option value="medium">Medium</option>
