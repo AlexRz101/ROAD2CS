@@ -13,7 +13,7 @@ Controller that communicates with the frontend via endpoints
 Follow: Fat service, Skinny controller
 Put logic into service, keep controller minimal as possible
  */
-@CrossOrigin(origins = "http://localhost:5173/")
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/roadmap")
 public class Road2CSController {

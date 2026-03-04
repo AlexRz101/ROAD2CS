@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function UserInput() {
+export default function UserInput( { onSubmit } ) {
     const [years, setYears] = useState('4');
     const [workload, setWorkload] = useState('light');
     const [field, setField] = useState('software engineering');
@@ -9,9 +9,9 @@ export default function UserInput() {
 
     const submit = (e) => {
         e.preventDefault();
-        const planRequest = { years, workload, field, winter, summer };
-        console.log(planRequest);
+        onSubmit({ years: parseInt(years), workload, chosenField: field, winter, summer });
     }
+
 
     return (
         <form className="grid grid-cols-2" onSubmit={submit}>
