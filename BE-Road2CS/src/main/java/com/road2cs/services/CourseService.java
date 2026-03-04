@@ -12,11 +12,11 @@ How we will store our courses, using the official CSUN roadmap,
 roadmap PDF, looking at our portal, etc.
  */
 @Service
-public class CoursesService {
+public class CourseService {
 
     private final Map<String, Course> courses;
 
-    public CoursesService() {
+    public CourseService() {
         this.courses = new HashMap<>();
         initializeCourses();
     }
@@ -45,6 +45,29 @@ public class CoursesService {
 
         /* Senior CS Electives */
         courses.put("COMP440", new Course("COMP 440", "Database Design", 3));
+        courses.put("COMP424", new Course("COMP 424", "Computer System Security", 3));
+        courses.put("COMP429", new Course("COMP 429", "Computer Network Software", 3));
+        courses.put("COMP430", new Course("COMP 430", "Language Design and Compilers", 3));
+        courses.put("COMP442", new Course("COMP 442", "Machine Learning", 3));
+        courses.put("COMP467", new Course("COMP 467", "Multimedia Systems", 3));
+        courses.put("COMP484", new Course("COMP 484", "Web Engineering I", 2));
+        courses.put("COMP484L", new Course("COMP 484L", "Web Engineering I Lab", 1));
+        courses.put("COMP485", new Course("COMP 485", "Human-Computer Interaction", 3));
+        courses.put("COMP494A", new Course("COMP 494A", "Academic Internship", 1));
+        courses.put("COMP502", new Course("COMP 502", "Programming Data Science Analytics", 3));
+        courses.put("COMP522", new Course("COMP 522", "Embedded Applications", 3));
+        courses.put("COMP529", new Course("COMP 529", "Advanced Network Topics", 2));
+        courses.put("COMP529L", new Course("COMP 529L", "Advanced Network Lab", 1));
+        courses.put("COMP541", new Course("COMP 541", "Data Mining", 3));
+        courses.put("COMP542", new Course("COMP 542", "Machine Learning", 3));
+        courses.put("COMP545", new Course("COMP 545", "Cloud Computing", 3));
+        courses.put("COMP565", new Course("COMP 565", "Advanced Computer Graphics", 3));
+        courses.put("COMP569", new Course("COMP 569", "Artificial Intelligence", 3));
+        courses.put("COMP583", new Course("COMP 583", "Software Engineering Management", 3));
+        courses.put("COMP584", new Course("COMP 584", "Advanced Web Engineering", 3));
+        courses.put("COMP585", new Course("COMP 585", "Graphical User Interfaces", 3));
+        courses.put("COMP586", new Course("COMP 586", "Object-Oriented Software Development", 3));
+        courses.put("COMP589", new Course("COMP 589", "Software Metrics", 3));
 
         /* Math courses */
         courses.put("MATH102", new Course("MATH 102", "Pre-Calculus I", 3));

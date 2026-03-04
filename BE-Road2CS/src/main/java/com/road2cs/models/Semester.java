@@ -1,5 +1,6 @@
 package com.road2cs.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,20 +11,22 @@ import java.util.Collection;
 @Getter
 @Setter
 public class Semester {
-    private double termNum; //which term it is
+    private int termNum; //which term it is
     private String termName; //fall/spring/summer/winter
+
+    @JsonIgnore
     private Map<String, Course> courses;  //courseId to Course
     private int semUnits;
 
     //Constructor - initialize with empty HashMap
-    public Semester(double termNum, String termName) {
+    public Semester(int termNum, String termName) {
         this.termNum = termNum;
         this.termName = termName;
         this.courses = new HashMap<>();
     }
 
     //Constructor - initialize with existing courses
-    public Semester(double termNum, String termName, Map<String, Course> courses) {
+    public Semester(int termNum, String termName, Map<String, Course> courses) {
         this.termNum = termNum;
         this.termName = termName;
         this.courses = courses != null ? courses : new HashMap<>();
