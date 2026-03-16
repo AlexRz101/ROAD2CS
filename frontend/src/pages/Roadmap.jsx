@@ -6,7 +6,6 @@ export default function Roadmap({ planRequest, onDataLoaded, roadmapData }) {
 
   const [semesters, setSemesters] = useState([]);  
 
-  //Update semesters whenever roadmapData changes (includes default load)
   useEffect(() => {
     if (!roadmapData) return;
     const sorted = [...roadmapData.template.semesters]
@@ -14,7 +13,6 @@ export default function Roadmap({ planRequest, onDataLoaded, roadmapData }) {
     setSemesters(sorted);
   }, [roadmapData]);
 
-  //Fetch when user submits a new request
   useEffect(() => {
     if (!planRequest) return;
     API.post('', planRequest)
@@ -23,7 +21,7 @@ export default function Roadmap({ planRequest, onDataLoaded, roadmapData }) {
   }, [planRequest]);
 
   return (
-    <div className="grid grid-cols-4 gap-4 p-4"> 
+    <div className="grid grid-cols-4 gap-4 p-4 pb-4"> 
       {semesters.map((sem) => (
         <Card
           key={sem.termNum}
