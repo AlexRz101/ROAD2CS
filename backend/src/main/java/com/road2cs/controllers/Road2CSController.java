@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Tag(name = "Roadmap endpoints", description = "Only controller used for Road2CS thus far")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://road2cs.vercel.app/gi")
 @RestController
 @RequestMapping("/api/roadmap")
 public class Road2CSController {
