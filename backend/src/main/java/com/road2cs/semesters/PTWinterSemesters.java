@@ -35,7 +35,7 @@ public class PTWinterSemesters {
 
         //Semester 6 - Spring (4 units)
         semesters.put("ptWinterSem6", createSemester(courseService, 6, "Spring",
-                "BIOL106-L"));
+                "GEOL101", "GEOL102"));
 
         // ─── Year 3 ───────────────────────────────────────────────────────────────
 
@@ -45,21 +45,21 @@ public class PTWinterSemesters {
 
         //Semester 8 - Winter (9 units)
         semesters.put("ptWinterSem8", createSemester(courseService, 8, "Winter",
-                "MATH262", "COMP324", "ECON101"));
+                "BIOL106-L"));
 
         //Semester 9 - Spring (4 units)
         semesters.put("ptWinterSem9", createSemester(courseService, 9, "Spring",
-                "GEOL101", "GEOL102"));
+                "MATH262", "COMP324", "ECON101"));
 
         // ─── Year 4 ───────────────────────────────────────────────────────────────
 
         //Semester 10 - Fall (10 units)
         semesters.put("ptWinterSem10", createSemester(courseService, 10, "Fall",
-                "COMP310", "POLS155", "MATH340"));
+                "COMP310", "MUS107", "MATH340"));
 
-        //Semester 11 - Winter (9 units)
-        semesters.put("ptWinterSem11", createSemester(courseService, 11, "Winter",
-                "MUS107", "ANTH150", "COMP333"));
+        //Semester 11 - Spring (9 units)
+        semesters.put("ptWinterSem11", createSemester(courseService, 11, "Spring",
+                "POLS155", "ANTH150", "COMP333"));
 
         // ─── Year 5 ───────────────────────────────────────────────────────────────
 
@@ -67,8 +67,8 @@ public class PTWinterSemesters {
         semesters.put("ptWinterSem12", createSemester(courseService, 12, "Fall",
                 "COMP322-L", "COMP482", "COMP380-L"));
 
-        //Semester 13 - Winter (6 units)
-        semesters.put("ptWinterSem13", createSemester(courseService, 13, "Winter",
+        //Semester 13 - Spring (6 units)
+        semesters.put("ptWinterSem13", createSemester(courseService, 13, "Spring",
                 "GEOG321", "COMP440", "COMS356"));
 
         // ─── Senior Year ──────────────────────────────────────────────────────────
@@ -78,7 +78,7 @@ public class PTWinterSemesters {
                 "COMP490-L", "COMP442", "COMP482"));
 
         //ML - Winter
-        semesters.put("ptWinterSemML15", createSemester(courseService, 15, "Winter",
+        semesters.put("ptWinterSemML15", createSemester(courseService, 15, "Spring",
                 "COMP491-L", "COMP542", "COMP569"));
 
 
@@ -87,7 +87,7 @@ public class PTWinterSemesters {
                 "COMP490-L", "COMP484", "COMP484L", "COMP429"));
 
         //WD - Winter
-        semesters.put("ptWinterSemWD15", createSemester(courseService, 15, "Winter",
+        semesters.put("ptWinterSemWD15", createSemester(courseService, 15, "Spring",
                 "COMP491-L", "COMP584", "COMP585"));
 
 
@@ -96,7 +96,7 @@ public class PTWinterSemesters {
                 "COMP490-L", "COMP467", "COMP485"));
 
         //Game Dev - Winter
-        semesters.put("ptWinterSemGD15", createSemester(courseService, 15, "Winter",
+        semesters.put("ptWinterSemGD15", createSemester(courseService, 15, "Spring",
                 "COMP491-L", "COMP565", "COMP585"));
 
 
@@ -105,7 +105,7 @@ public class PTWinterSemesters {
                 "COMP490-L", "COMP541", "COMP502"));
 
         //Data Science - Winter
-        semesters.put("ptWinterSemDS15", createSemester(courseService, 15, "Winter",
+        semesters.put("ptWinterSemDS15", createSemester(courseService, 15, "Spring",
                 "COMP491-L", "COMP542", "COMP569"));
 
 
@@ -114,7 +114,7 @@ public class PTWinterSemesters {
                 "COMP490-L", "COMP424", "COMP429"));
 
         //Cybersecurity - Winter
-        semesters.put("ptWinterSemCS15", createSemester(courseService, 15, "Winter",
+        semesters.put("ptWinterSemCS15", createSemester(courseService, 15, "Spring",
                 "COMP491-L", "COMP522", "COMP529", "COMP529L"));
 
 
@@ -123,7 +123,7 @@ public class PTWinterSemesters {
                 "COMP490-L", "COMP440", "COMP424"));
 
         //Software Engineering - Winter
-        semesters.put("ptWinterSemSE15", createSemester(courseService, 15, "Winter",
+        semesters.put("ptWinterSemSE15", createSemester(courseService, 15, "Spring",
                 "COMP491-L", "COMP586", "COMP583", "COMP585"));
     }
 
