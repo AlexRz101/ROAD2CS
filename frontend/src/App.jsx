@@ -23,7 +23,21 @@ function App() {
     API.post('', defaultRequest)
       .then((res) => setRoadmapData(res.data))
       .catch((err) => console.error(err));
-  }, []); 
+  }, []);
+
+  useEffect(() => {
+    const keepAlive = setInterval(() => {
+      API.post('/api/roadmap', {
+        years: 4,
+        workload: "medium",
+        chosenField: "software engineering",
+        winter: false,
+        summer: false
+      }).catch(() => {});
+    }, 10 * 60 * 1000);
+
+    return () => clearInterval(keepAlive);
+  }, []);
 
   return (
     <div className="flex flex-col h-screen">
