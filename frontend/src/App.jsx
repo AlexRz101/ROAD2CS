@@ -20,7 +20,7 @@ function App() {
       winter: false,
       summer: false
     };
-    API.post('', defaultRequest)
+    API.post('/api/roadmap', defaultRequest)
       .then((res) => setRoadmapData(res.data))
       .catch((err) => console.error(err));
   }, []);
