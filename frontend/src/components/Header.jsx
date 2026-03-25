@@ -5,7 +5,6 @@ const studentID = "Placeholder Student ID"
 const major = "Computer Science"
 */
 
-
 export default function Header() {
     return (
         <div className="border-b border-gray-600">
