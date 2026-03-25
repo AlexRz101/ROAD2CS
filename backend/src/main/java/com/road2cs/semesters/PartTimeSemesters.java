@@ -13,11 +13,11 @@ public class PartTimeSemesters {
 
         //Semester 1 - Fall (11 units)
         semesters.put("ptSem1", createSemester(courseService, 1, "Fall",
-                "COMP110-L", "BIOL106-L", "PHIL230"));
+                "COMP110-L", "BIOL106-L", "ENG115"));
 
         //Semester 2 - Spring (11 units)
         semesters.put("ptSem2", createSemester(courseService, 2, "Spring",
-                "MATH150A", "POLS155", "ENG115"));
+                "MATH150A", "POLS155", "PHIL230"));
 
         //Semester 3 - Fall (11 units)
         semesters.put("ptSem3", createSemester(courseService, 3, "Fall",
