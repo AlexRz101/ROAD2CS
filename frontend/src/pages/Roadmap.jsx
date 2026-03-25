@@ -15,7 +15,7 @@ export default function Roadmap({ planRequest, onDataLoaded, roadmapData }) {
 
   useEffect(() => {
     if (!planRequest) return;
-    API.post('', planRequest)
+    API.post('/api/roadmap', planRequest)
       .then((res) => onDataLoaded(res.data))
       .catch((err) => console.error(err));
   }, [planRequest]);
