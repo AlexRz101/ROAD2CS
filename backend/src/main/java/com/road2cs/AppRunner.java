@@ -32,31 +32,46 @@ public class AppRunner implements CommandLineRunner {
         System.out.println("------------------------");
         System.out.println("Road2CS Project Baby!!!");
         System.out.println("------------------------");
+/*
+        //4-Year Medium Summer Templates
+        Template medSummerML = templateService.getTemplate("CS-4YEAR-MEDIUM-SUMMER-ML-2024");
+        Template medSummerWD = templateService.getTemplate("CS-4YEAR-MEDIUM-SUMMER-WD-2024");
+        System.out.println("------Medium Summer Templates------");
+        System.out.println(medSummerML);
+        System.out.println(medSummerWD);
+        System.out.println();
 
-        //Get the heavy template and print it
-        Template ptTemplateML = templateService.getTemplate("CS-PART-TIME-ML-2024");
-        Template ptTemplateWD = templateService.getTemplate("CS-PART-TIME-WD-2024");
-        Template ptTemplateGD = templateService.getTemplate("CS-PART-TIME-GD-2024");
-        Template ptTemplateDS = templateService.getTemplate("CS-PART-TIME-DS-2024");
-        Template ptTemplateCS = templateService.getTemplate("CS-PART-TIME-CS-2024");
-        Template ptTemplateSE = templateService.getTemplate("CS-PART-TIME-SE-2024");
+        //4-Year Medium Winter Templates
+        Template medWinterML = templateService.getTemplate("CS-4YEAR-MEDIUM-WINTER-ML-2024");
+        Template medWinterWD = templateService.getTemplate("CS-4YEAR-MEDIUM-WINTER-WD-2024");
+        System.out.println("------Medium Winter Templates------");
+        System.out.println(medWinterML);
+        System.out.println(medWinterWD);
+        System.out.println();
 
-        System.out.println(ptTemplateML);
+        //6-Year Part-Time Hybrid Templates
+        Template partTimeHybridML = templateService.getTemplate("CS-PART-TIME-HYBRID-ML-2024");
+        Template partTimeHybridWD = templateService.getTemplate("CS-PART-TIME-HYBRID-WD-2024");
+        System.out.println("------Part-Time Hybrid Templates------");
+        System.out.println(partTimeHybridML);
+        System.out.println(partTimeHybridWD);
         System.out.println();
-        System.out.println();
-        System.out.println(ptTemplateWD);
-        System.out.println();
-        System.out.println();
-        System.out.println(ptTemplateGD);
-        System.out.println();
-        System.out.println();
-        System.out.println(ptTemplateDS);
-        System.out.println();
-        System.out.println();
-        System.out.println(ptTemplateCS);
-        System.out.println();
-        System.out.println();
-        System.out.println(ptTemplateSE);
 
+        //6-Year Part-Time Summer Templates
+        Template partTimeSummerML = templateService.getTemplate("CS-PART-TIME-SUMMER-ML-2024");
+        Template partTimeSummerWD = templateService.getTemplate("CS-PART-TIME-SUMMER-WD-2024");
+        System.out.println("------Part-Time Summer Templates------");
+        System.out.println(partTimeSummerML);
+        System.out.println(partTimeSummerWD);
+        System.out.println();
+
+        //6-Year Part-Time Winter Templates
+        Template partTimeWinterML = templateService.getTemplate("CS-PART-TIME-WINTER-ML-2024");
+        Template partTimeWinterWD = templateService.getTemplate("CS-PART-TIME-WINTER-WD-2024");
+        System.out.println("------Part-Time Winter Templates------");
+        System.out.println(partTimeWinterML);
+        System.out.println(partTimeWinterWD);
+        System.out.println();
+ */
     }
 }

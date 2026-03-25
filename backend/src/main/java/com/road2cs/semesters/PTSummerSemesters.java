@@ -20,7 +20,7 @@ public class PTSummerSemesters {
                 "COMP182-L", "COMP122-L"));
 
         //Semester 3 - Summer (3 units)
-        semesters.put("ptSummerSemS1", createSemester(courseService, 3, "Summer",
+        semesters.put("ptSummerSem3", createSemester(courseService, 3, "Summer",
                 "ENG115"));
 
         // ─── Year 2 ───────────────────────────────────────────────────────────────
@@ -34,7 +34,7 @@ public class PTSummerSemesters {
                 "MATH150B", "COMS151"));
 
         //Semester 6 - Summer (4 units)
-        semesters.put("ptSummerSemS2", createSemester(courseService, 6, "Summer",
+        semesters.put("ptSummerSem6", createSemester(courseService, 6, "Summer",
                 "BIOL106-L"));
 
         // ─── Year 3 ───────────────────────────────────────────────────────────────
@@ -48,7 +48,7 @@ public class PTSummerSemesters {
                 "MATH262", "COMP324", "ECON101"));
 
         //Semester 9 - Summer (4 units)
-        semesters.put("ptSummerSemS3", createSemester(courseService, 9, "Summer",
+        semesters.put("ptSummerSem9", createSemester(courseService, 9, "Summer",
                 "GEOL101", "GEOL102"));
 
         // ─── Year 4 ───────────────────────────────────────────────────────────────

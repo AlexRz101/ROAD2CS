@@ -22,10 +22,16 @@ public class SemesterService {
     private void initializeSemesters() {
         HeavySemesters.register(semesters, courseService);
         MediumSemesters.register(semesters, courseService);
+        FourYearSummerSemesters.register(semesters, courseService);
+        FourYearWinterSemesters.register(semesters, courseService);
         FourYearLightSemesters.register(semesters, courseService);
         FiveYearLightSemesters.register(semesters, courseService);
         PartTimeSemesters.register(semesters, courseService);
+        PTSummerSemesters.register(semesters, courseService);
+        PTWinterSemesters.register(semesters, courseService);
+        PTHybridSemesters.register(semesters, courseService);
     }
+
 
     public Semester getSemester(String semesterKey) {
         return semesters.get(semesterKey);
