@@ -2,18 +2,13 @@ import { useState, useEffect } from "react";
 
 export default function UserInput({ onSubmit }) {
 
-    //Default values on load
     const [years, setYears] = useState("4");
     const [workload, setWorkload] = useState("medium");
     const [field, setField] = useState("software engineering");
-
     const [winter, setWinter] = useState(false); 
     const [summer, setSummer] = useState(false);
 
-    //useEffect for user input
     useEffect(() => {
-        
-        // 5-year rules
         if (years === "5") {
             setWorkload("light");
             setWinter(false);
@@ -21,25 +16,19 @@ export default function UserInput({ onSubmit }) {
             return;
         }
 
-        // 6-year rules
         if (years === "6") {
             setWorkload("light");
-            return; // winter/summer free
+            return;
         }
 
-        // 4-year rules
         if (years === "4") {
             if (workload === "heavy") {
                 setWinter(false);
                 setSummer(false);
-
             } else if (workload === "medium") {
-
-                //enforce only one checkbox at a time
                 if (winter && summer) {
                     setSummer(false);
                 }
-
             } else if (workload === "light") {
                 setWinter(true);
                 setSummer(true);
@@ -59,7 +48,7 @@ export default function UserInput({ onSubmit }) {
 
     const handleWinter = () => {
         if (years === "4" && workload === "medium") {
-            setWinter(true);
+            setWinter(prev => !prev);
             setSummer(false);
         } else {
             setWinter(prev => !prev);
@@ -68,7 +57,7 @@ export default function UserInput({ onSubmit }) {
 
     const handleSummer = () => {
         if (years === "4" && workload === "medium") {
-            setSummer(true);
+            setSummer(prev => !prev);
             setWinter(false);
         } else {
             setSummer(prev => !prev);
