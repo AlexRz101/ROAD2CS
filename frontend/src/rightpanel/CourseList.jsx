@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Accordion from "../components/Accordion.jsx";
 
-const COURSES_PER_PAGE = 8;
+const isMobile = window.innerWidth < 768;
+const COURSES_PER_PAGE = isMobile ? 10 : 8;
 
 const placeholderCourses = [
     {id: 1, title: "Comp 110+L", content: "Units: 4 \nRequirements\nnone", units: 4},
@@ -41,8 +42,8 @@ export default function CourseList({ roadmapData }) {
     const totalPages = Math.ceil(activeCourses.length / COURSES_PER_PAGE);
     const pageCourses = activeCourses.slice(page * COURSES_PER_PAGE, (page + 1) * COURSES_PER_PAGE);
 
-    const col1 = pageCourses.slice(0, 4);
-    const col2 = pageCourses.slice(4, 8);
+    const col1 = pageCourses.slice(0, isMobile ? 5 : 4);
+    const col2 = pageCourses.slice(isMobile ? 5 : 4, isMobile ? 10 : 8);
 
     const toggleExpand = (id) => {
         setExpandedId(expandedId === id ? null : id);

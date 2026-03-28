@@ -4,7 +4,7 @@ export default function Accordion({ title, content, isExpanded, onToggle }) {
     return (
         
         //Div for the base accordion
-        <div className={`bg-white w-56 rounded-lg
+        <div className={`bg-white w-36 md:w-56 rounded-lg
             overflow-hidden transition-all duration-300 
             shadow-md border border-gray-200 ${
             isExpanded ? "max-h-96" : "max-h-20"
