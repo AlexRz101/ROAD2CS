@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import Accordion from "../components/Accordion.jsx";
 
-const COURSES_PER_PAGE = 8;
-
 const placeholderCourses = [
     {id: 1, title: "Comp 110+L", content: "Units: 4 \nRequirements\nnone", units: 4},
     {id: 2, title: "Math 150A", content: "Units: 5 \nRequirements\nnone", units: 5},
@@ -13,16 +11,24 @@ const placeholderCourses = [
 ];
 
 export default function CourseList({ roadmapData }) {
+
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const [expandedId, setExpandedId] = useState(null);
     const [page, setPage] = useState(0);
 
-    // Reset when new data loads
+    const COURSES_PER_PAGE = isMobile ? 10 : 8;
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     useEffect(() => {
         setPage(0);
         setExpandedId(null);
     }, [roadmapData]);
 
-    // Build courses from roadmapData if available, otherwise use placeholders
     const activeCourses = roadmapData
         ? roadmapData.template.semesters.flatMap(sem =>
             Object.values(sem.courses).map(c => ({
@@ -41,8 +47,8 @@ export default function CourseList({ roadmapData }) {
     const totalPages = Math.ceil(activeCourses.length / COURSES_PER_PAGE);
     const pageCourses = activeCourses.slice(page * COURSES_PER_PAGE, (page + 1) * COURSES_PER_PAGE);
 
-    const col1 = pageCourses.slice(0, 4);
-    const col2 = pageCourses.slice(4, 8);
+    const col1 = pageCourses.slice(0, isMobile ? 5 : 4);
+    const col2 = pageCourses.slice(isMobile ? 5 : 4, isMobile ? 10 : 8);
 
     const toggleExpand = (id) => {
         setExpandedId(expandedId === id ? null : id);

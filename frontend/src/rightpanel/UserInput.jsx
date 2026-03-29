@@ -76,7 +76,7 @@ export default function UserInput({ onSubmit }) {
     };
 
     return (
-        <form className="grid grid-cols-2" onSubmit={submit}>
+        <form className="grid grid-cols-2 gap-x-10 gap-y-1 text-sm md:text-base" onSubmit={submit}>
 
             {/* Years */}
             <div className="flex">

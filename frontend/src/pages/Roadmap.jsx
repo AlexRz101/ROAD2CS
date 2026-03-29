@@ -21,7 +21,7 @@ export default function Roadmap({ planRequest, onDataLoaded, roadmapData }) {
   }, [planRequest]);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 pb-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 justify-items-center">
       {semesters.map((sem) => (
         <Card
           key={sem.termNum}
