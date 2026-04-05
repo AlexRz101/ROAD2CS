@@ -102,7 +102,11 @@ function App() {
           </div>
 
           {/* Content */}
+<<<<<<< HEAD
           <div className="flex-1 overflow-auto">
+=======
+          <div className="flex-1 overflow-auto p-2">
+>>>>>>> prod
             {mobileView === 'roadmap' && (
               <Roadmap planRequest={planRequest} onDataLoaded={setRoadmapData} roadmapData={roadmapData} />
             )}
