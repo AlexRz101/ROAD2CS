@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Card from '../components/Card.jsx';
 import API from '../api/index.js';
 
-export default function Roadmap({ planRequest, onDataLoaded, roadmapData }) {
+export default function Roadmap({ planRequest, onDataLoaded, roadmapData, isTablet }) {
 
   const [semesters, setSemesters] = useState([]);  
 
@@ -21,7 +21,7 @@ export default function Roadmap({ planRequest, onDataLoaded, roadmapData }) {
   }, [planRequest]);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 justify-items-center">
+    <div className={`grid gap-2 justify-items-center ${isTablet ? 'grid-cols-3' : 'grid-cols-2 md:grid-cols-4'}`}>
       {semesters.map((sem) => (
         <Card
           key={sem.termNum}

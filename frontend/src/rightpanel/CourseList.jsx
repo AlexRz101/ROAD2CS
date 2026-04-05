@@ -10,19 +10,12 @@ const placeholderCourses = [
     {id: 6, title: "Math 150B", content: "Units: 5 \nRequirements\nMath150A", units: 5},
 ];
 
-export default function CourseList({ roadmapData }) {
+export default function CourseList({ roadmapData, isTablet }) {
 
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const [expandedId, setExpandedId] = useState(null);
     const [page, setPage] = useState(0);
 
-    const COURSES_PER_PAGE = isMobile ? 10 : 8;
-
-    useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 768);
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    const COURSES_PER_PAGE = isTablet ? 12 : 10;
 
     useEffect(() => {
         setPage(0);
@@ -47,8 +40,8 @@ export default function CourseList({ roadmapData }) {
     const totalPages = Math.ceil(activeCourses.length / COURSES_PER_PAGE);
     const pageCourses = activeCourses.slice(page * COURSES_PER_PAGE, (page + 1) * COURSES_PER_PAGE);
 
-    const col1 = pageCourses.slice(0, isMobile ? 5 : 4);
-    const col2 = pageCourses.slice(isMobile ? 5 : 4, isMobile ? 10 : 8);
+    const col1 = pageCourses.slice(0, isTablet ? 6 : 5);
+    const col2 = pageCourses.slice(isTablet ? 6 : 5, isTablet ? 12 : 10);
 
     const toggleExpand = (id) => {
         setExpandedId(expandedId === id ? null : id);

@@ -8,10 +8,25 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useState, useEffect } from "react";
 import API from './api/index.js';
 
+const useWindowSize = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  return width;
+};
+
 function App() {
   const [planRequest, setPlanRequest] = useState(null);
   const [roadmapData, setRoadmapData] = useState(null);
   const [mobileView, setMobileView] = useState('roadmap');
+
+  const width = useWindowSize();
+  const isMobile = width < 768;
+  const isTablet = width >= 768 && width < 1280;
+  const isDesktop = width >= 1280;
 
   useEffect(() => {
     const defaultRequest = {
@@ -56,61 +71,103 @@ function App() {
         <Header />
 
         {/* DESKTOP */}
-        <div className="hidden md:flex flex-1 overflow-hidden">
-          <div className="flex-[3] border-r border-gray-600 p-4 overflow-auto">
-            <Roadmap planRequest={planRequest} onDataLoaded={setRoadmapData} roadmapData={roadmapData} />
+        {isDesktop && (
+          <div className="flex flex-1 overflow-hidden">
+            <div className="flex-[3] border-r border-gray-600 p-4 overflow-auto">
+              <Roadmap planRequest={planRequest} onDataLoaded={setRoadmapData} roadmapData={roadmapData} />
+            </div>
+            <div className="flex-[1.5] flex flex-col overflow-hidden">
+              <div className="border-b border-gray-600 p-4">
+                <UserChoices onSubmit={setPlanRequest} />
+              </div>
+              <div className="flex-1 overflow-y-auto p-4">
+                <CourseList roadmapData={roadmapData} />
+              </div>
+            </div>
           </div>
-          <div className="flex-[1.5] flex flex-col overflow-hidden">
+        )}
+
+        {/* TABLET */}
+        {isTablet && (
+          <div className="flex flex-col flex-1 overflow-auto">
             <div className="border-b border-gray-600 p-4">
-              <UserChoices onSubmit={setPlanRequest} />
+              <UserChoices onSubmit={handleSubmit} />
             </div>
-            <div className="flex-1 overflow-y-auto p-4">
-              <CourseList roadmapData={roadmapData} />
+
+            <div className="flex border-b border-gray-600">
+              <button
+                onClick={() => setMobileView('roadmap')}
+                className={`flex-1 py-2 text-sm font-medium ${
+                  mobileView === 'roadmap'
+                    ? 'border-b-2 border-blue-500 text-blue-500'
+                    : 'text-gray-400'
+                }`}
+              >
+                Roadmap
+              </button>
+              <button
+                onClick={() => setMobileView('courses')}
+                className={`flex-1 py-2 text-sm font-medium ${
+                  mobileView === 'courses'
+                    ? 'border-b-2 border-blue-500 text-blue-500'
+                    : 'text-gray-400'
+                }`}
+              >
+                Courses
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-auto p-4">
+              {mobileView === 'roadmap' && (
+                <Roadmap planRequest={planRequest} onDataLoaded={setRoadmapData} roadmapData={roadmapData} isTablet={true} />
+              )}
+              {mobileView === 'courses' && (
+                <CourseList roadmapData={roadmapData} isTablet={isTablet} />
+              )}
             </div>
           </div>
-        </div>
+        )}
 
         {/* MOBILE */}
-        <div className="flex md:hidden flex-col flex-1 overflow-auto">
-          {/* User Input */}
-          <div className="border-b border-gray-600 p-4">
-            <UserChoices onSubmit={handleSubmit} />
-          </div>
+        {isMobile && (
+          <div className="flex flex-col flex-1 overflow-auto">
+            <div className="border-b border-gray-600 p-4">
+              <UserChoices onSubmit={handleSubmit} />
+            </div>
 
-          {/* Toggle */}
-          <div className="flex border-b border-gray-600">
-            <button
-              onClick={() => setMobileView('roadmap')}
-              className={`flex-1 py-2 text-sm font-medium ${
-                mobileView === 'roadmap'
-                  ? 'border-b-2 border-blue-500 text-blue-500'
-                  : 'text-gray-400'
-              }`}
-            >
-              Roadmap
-            </button>
-            <button
-              onClick={() => setMobileView('courses')}
-              className={`flex-1 py-2 text-sm font-medium ${
-                mobileView === 'courses'
-                  ? 'border-b-2 border-blue-500 text-blue-500'
-                  : 'text-gray-400'
-              }`}
-            >
-              Courses
-            </button>
-          </div>
+            <div className="flex border-b border-gray-600">
+              <button
+                onClick={() => setMobileView('roadmap')}
+                className={`flex-1 py-2 text-sm font-medium ${
+                  mobileView === 'roadmap'
+                    ? 'border-b-2 border-blue-500 text-blue-500'
+                    : 'text-gray-400'
+                }`}
+              >
+                Roadmap
+              </button>
+              <button
+                onClick={() => setMobileView('courses')}
+                className={`flex-1 py-2 text-sm font-medium ${
+                  mobileView === 'courses'
+                    ? 'border-b-2 border-blue-500 text-blue-500'
+                    : 'text-gray-400'
+                }`}
+              >
+                Courses
+              </button>
+            </div>
 
-          {/* Content */}
-          <div className="flex-1 overflow-auto p-2">
-            {mobileView === 'roadmap' && (
-              <Roadmap planRequest={planRequest} onDataLoaded={setRoadmapData} roadmapData={roadmapData} />
-            )}
-            {mobileView === 'courses' && (
-              <CourseList roadmapData={roadmapData} />
-            )}
+            <div className="flex-1 overflow-auto p-2">
+              {mobileView === 'roadmap' && (
+                <Roadmap planRequest={planRequest} onDataLoaded={setRoadmapData} roadmapData={roadmapData} />
+              )}
+              {mobileView === 'courses' && (
+                <CourseList roadmapData={roadmapData} />
+              )}
+            </div>
           </div>
-        </div>
+        )}
 
         <Footer />
       </div>
