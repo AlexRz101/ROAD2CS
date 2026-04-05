@@ -1,12 +1,6 @@
 import { useState, useEffect } from "react";
 import Accordion from "../components/Accordion.jsx";
 
-<<<<<<< HEAD
-const isMobile = window.innerWidth < 768;
-const COURSES_PER_PAGE = isMobile ? 10 : 8;
-
-=======
->>>>>>> prod
 const placeholderCourses = [
     {id: 1, title: "Comp 110+L", content: "Units: 4 \nRequirements\nnone", units: 4},
     {id: 2, title: "Math 150A", content: "Units: 5 \nRequirements\nnone", units: 5},
