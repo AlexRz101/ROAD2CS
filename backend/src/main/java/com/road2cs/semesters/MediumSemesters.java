@@ -10,7 +10,7 @@ public class MediumSemesters {
         /* mediumSem */
         //Semester 1 - Fall (15 units)
         semesters.put("mediumSem1", createSemester(courseService, 1, "Fall",
-                "COMP110-L", "MATH150A", "COMS151", "ENG115"));
+                "COMP110-L", "MATH150A", "GE_A1", "GE_A2"));
 
         //Semester 2 - Spring (16 units)
         semesters.put("mediumSem2", createSemester(courseService, 2, "Spring",
@@ -18,19 +18,19 @@ public class MediumSemesters {
 
         //Semester 3 - Fall (14 units)
         semesters.put("mediumSem3", createSemester(courseService, 3, "Fall",
-                "COMP282", "COMP222", "COMP256-L", "GEOL101", "GEOL102"));
+                "COMP282", "COMP222", "COMP256-L", "GE_B1/B3"));
 
         //Semester 4 - Spring (16 units)
         semesters.put("mediumSem4", createSemester(courseService, 4, "Spring",
-                "MATH262", "BIOL106-L", "ECON101", "POLS155", "AAS100"));
+                "MATH262", "GE_B2B3", "GE_C2", "POLS155", "GE_F"));
 
         //Semester 5 - Fall (14 units)
         semesters.put("mediumSem5", createSemester(courseService, 5, "Fall",
-                "COMP322-L", "COMP310", "MATH340", "MUS107"));
+                "COMP322-L", "COMP310", "MATH340", "GE_C1"));
 
         //Semester 6 - Spring (15 units)
         semesters.put("mediumSem6", createSemester(courseService, 6, "Spring",
-                "COMP333", "COMP380-L", "COMP324", "HIST271", "ANTH150"));
+                "COMP333", "COMP380-L", "COMP324", "GE_C3", "ANTH150"));
 
         //ML Sem1 - Fall (15 units)
         semesters.put("mediumSemML7", createSemester(courseService, 7, "Fall",

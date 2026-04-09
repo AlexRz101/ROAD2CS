@@ -12,11 +12,11 @@ public class FourYearWinterSemesters {
 
         //Semester 1 - Fall (15 units)
         semesters.put("medWinterSem1", createSemester(courseService, 1, "Fall",
-                "COMP110-L", "MATH150A", "ENG115", "AAS100"));
+                "COMP110-L", "MATH150A", "GE_A2", "GE_F"));
 
         //Semester 2 - Winter (3 units)
         semesters.put("medWinterSem2", createSemester(courseService, 2, "Winter",
-                "ECON101"));
+                "GE_C2"));
 
         //Semester 3 - Spring (13 units)
         semesters.put("medWinterSem3", createSemester(courseService, 3, "Spring",
@@ -26,7 +26,7 @@ public class FourYearWinterSemesters {
 
         //Semester 4 - Fall (16 units)
         semesters.put("medWinterSem4", createSemester(courseService, 4, "Fall",
-                "COMP282", "COMP222", "BIOL106-L", "PHIL230", "HIST271"));
+                "COMP282", "COMP222", "GE_B2B3", "PHIL230", "GE_C3"));
 
         //Semester 5 - Winter (3 units)
         semesters.put("medWinterSem5", createSemester(courseService, 5, "Winter",
@@ -34,13 +34,13 @@ public class FourYearWinterSemesters {
 
         //Semester 6 - Spring (14 units)
         semesters.put("medWinterSem6", createSemester(courseService, 6, "Spring",
-                "MATH262", "COMP256-L", "COMS151", "GEOL101", "GEOL102"));
+                "MATH262", "COMP256-L", "GE_A1", "GE_B1/B3"));
 
         // ─── Year 3 ───────────────────────────────────────────────────────────────
 
         //Semester 7 - Fall (14 units)
         semesters.put("medWinterSem7", createSemester(courseService, 7, "Fall",
-                "COMP322-L", "COMP310", "MATH340", "MUS107"));
+                "COMP322-L", "COMP310", "MATH340", "GE_C1"));
 
         //Semester 8 - Winter (3 units)
         semesters.put("medWinterSem8", createSemester(courseService, 8, "Winter",

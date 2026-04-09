@@ -21,35 +21,35 @@ public class PTSummerSemesters {
 
         //Semester 3 - Summer (3 units)
         semesters.put("ptSummerSem3", createSemester(courseService, 3, "Summer",
-                "ENG115"));
+                "GE_A2"));
 
         // ─── Year 2 ───────────────────────────────────────────────────────────────
 
         //Semester 4 - Fall (9 units)
         semesters.put("ptSummerSem4", createSemester(courseService, 4, "Fall",
-                "PHIL230", "HIST271", "COMP282"));
+                "PHIL230", "GE_C3", "COMP282"));
 
         //Semester 5 - Spring (8 units)
         semesters.put("ptSummerSem5", createSemester(courseService, 5, "Spring",
-                "MATH150B", "COMS151"));
+                "MATH150B", "GE_A1"));
 
         //Semester 6 - Summer (4 units)
         semesters.put("ptSummerSem6", createSemester(courseService, 6, "Summer",
-                "BIOL106-L"));
+                "GE_B2B3"));
 
         // ─── Year 3 ───────────────────────────────────────────────────────────────
 
         //Semester 7 - Fall (10 units)
         semesters.put("ptSummerSem7", createSemester(courseService, 7, "Fall",
-                "COMP222", "COMP256-L", "AAS100"));
+                "COMP222", "COMP256-L", "GE_F"));
 
         //Semester 8 - Spring (9 units)
         semesters.put("ptSummerSem8", createSemester(courseService, 8, "Spring",
-                "MATH262", "COMP324", "ECON101"));
+                "MATH262", "COMP324", "GE_C2"));
 
         //Semester 9 - Summer (4 units)
         semesters.put("ptSummerSem9", createSemester(courseService, 9, "Summer",
-                "GEOL101", "GEOL102"));
+                "GE_B1/B3"));
 
         // ─── Year 4 ───────────────────────────────────────────────────────────────
 
@@ -59,7 +59,7 @@ public class PTSummerSemesters {
 
         //Semester 11 - Spring (9 units)
         semesters.put("ptSummerSem11", createSemester(courseService, 11, "Spring",
-                "MUS107", "ANTH150", "COMP333"));
+                "GE_C1", "ANTH150", "COMP333"));
 
         // ─── Year 5 ───────────────────────────────────────────────────────────────
 

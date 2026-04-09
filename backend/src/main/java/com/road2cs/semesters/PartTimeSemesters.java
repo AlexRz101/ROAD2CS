@@ -13,7 +13,7 @@ public class PartTimeSemesters {
 
         //Semester 1 - Fall (11 units)
         semesters.put("ptSem1", createSemester(courseService, 1, "Fall",
-                "COMP110-L", "BIOL106-L", "ENG115"));
+                "COMP110-L", "GE_B2B3", "GE_A2"));
 
         //Semester 2 - Spring (11 units)
         semesters.put("ptSem2", createSemester(courseService, 2, "Spring",
@@ -21,23 +21,23 @@ public class PartTimeSemesters {
 
         //Semester 3 - Fall (11 units)
         semesters.put("ptSem3", createSemester(courseService, 3, "Fall",
-                "COMP182-L", "COMP122-L", "COMS151"));
+                "COMP182-L", "COMP122-L", "GE_A1"));
 
         //Semester 4 - Spring (11 units)
         semesters.put("ptSem4", createSemester(courseService, 4, "Spring",
-                "COMP256-L", "GEOL101", "GEOL102", "HIST271"));
+                "COMP256-L", "GE_B1/B3", "GE_C3"));
 
         //Semester 5 - Fall (11 units)
         semesters.put("ptSem5", createSemester(courseService, 5, "Fall",
-                "AAS100", "MATH150B", "COMP282"));
+                "GE_F", "MATH150B", "COMP282"));
 
         //Semester 6 - Spring (10 units)
         semesters.put("ptSem6", createSemester(courseService, 6, "Spring",
-                "MATH340", "MUS107", "COMP222"));
+                "MATH340", "GE_C1", "COMP222"));
 
         //Semester 7 - Fall (9 units)
         semesters.put("ptSem7", createSemester(courseService, 7, "Fall",
-                "ANTH150", "COMP310", "ECON101"));
+                "ANTH150", "COMP310", "GE_C2"));
 
         //Semester 8 - Spring (10 units)
         semesters.put("ptSem8", createSemester(courseService, 8, "Spring",

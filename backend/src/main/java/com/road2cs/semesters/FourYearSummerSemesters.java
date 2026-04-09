@@ -12,7 +12,7 @@ public class FourYearSummerSemesters {
 
         //Semester 1 - Fall (15 units)
         semesters.put("medSummerSem1", createSemester(courseService, 1, "Fall",
-                "COMP110-L", "MATH150A", "ENG115", "AAS100"));
+                "COMP110-L", "MATH150A", "GE_A2", "GE_F"));
 
         //Semester 2 - Spring (13 units)
         semesters.put("medSummerSem2", createSemester(courseService, 2, "Spring",
@@ -20,21 +20,21 @@ public class FourYearSummerSemesters {
 
         //Semester 3 - Summer (6 units)
         semesters.put("medSummerSem3", createSemester(courseService, 3, "Summer",
-                "ECON101", "POLS155"));
+                "GE_C2", "POLS155"));
 
         // ─── Year 2 ───────────────────────────────────────────────────────────────
 
         //Semester 4 - Fall (16 units)
         semesters.put("medSummerSem4", createSemester(courseService, 4, "Fall",
-                "COMP282", "COMP222", "BIOL106-L", "PHIL230", "MUS107"));
+                "COMP282", "COMP222", "GE_B2B3", "PHIL230", "GE_C1"));
 
         //Semester 5 - Spring (14 units)
         semesters.put("medSummerSem5", createSemester(courseService, 5, "Spring",
-                "MATH262", "COMP256-L", "COMS151", "GEOL101", "GEOL102"));
+                "MATH262", "COMP256-L", "GE_A1", "GE_B1/B3"));
 
         //Semester 6 - Summer (6 units)
         semesters.put("medSummerSem6", createSemester(courseService, 6, "Summer",
-                "HIST271", "ANTH150"));
+                "GE_C3", "ANTH150"));
 
         // ─── Year 3 ───────────────────────────────────────────────────────────────
 

@@ -12,7 +12,7 @@ public class HeavySemesters {
         /* Heavy Load Path - 4 Years (17-18 units per semester) */
         //Semester 1 - Fall (18 units)
         semesters.put("heavySem1", createSemester(courseService, 1, "Fall",
-                "COMP110-L", "MATH150A", "COMS151", "ENG115", "MUS107"));
+                "COMP110-L", "MATH150A", "GE_A1", "GE_A2", "GE_C1"));
 
         //Semester 2 - Spring (16 units)
         semesters.put("heavySem2", createSemester(courseService, 2, "Spring",
@@ -20,11 +20,11 @@ public class HeavySemesters {
 
         //Semester 3 - Fall (17 units)
         semesters.put("heavySem3", createSemester(courseService, 3, "Fall",
-                "COMP282", "COMP222", "COMP256-L", "MATH262", "GEOL101", "GEOL102"));
+                "COMP282", "COMP222", "COMP256-L", "MATH262", "GE_B1/B3"));
 
         //Semester 4 - Spring (16 units)
         semesters.put("heavySem4", createSemester(courseService, 4, "Spring",
-                "BIOL106-L", "HIST271", "ECON101", "POLS155", "AAS100"));
+                "GE_B2B3", "GE_C3", "GE_C2", "POLS155", "GE_F"));
 
         //Semester 5 - Fall (17 units)
         semesters.put("heavySem5", createSemester(courseService, 5, "Fall",

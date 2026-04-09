@@ -21,41 +21,41 @@ public class PTWinterSemesters {
 
         //Semester 3 - Spring (3 units)
         semesters.put("ptWinterSem3", createSemester(courseService, 3, "Spring",
-                "ENG115"));
+                "GE_A2"));
 
         // ─── Year 2 ───────────────────────────────────────────────────────────────
 
         //Semester 4 - Fall (9 units)
         semesters.put("ptWinterSem4", createSemester(courseService, 4, "Fall",
-                "PHIL230", "HIST271", "COMP282"));
+                "PHIL230", "GE_C3", "COMP282"));
 
         //Semester 5 - Winter (8 units)
         semesters.put("ptWinterSem5", createSemester(courseService, 5, "Winter",
-                "MATH150B", "COMS151"));
+                "MATH150B", "GE_A1"));
 
         //Semester 6 - Spring (4 units)
         semesters.put("ptWinterSem6", createSemester(courseService, 6, "Spring",
-                "GEOL101", "GEOL102"));
+                "GE_B1/B3"));
 
         // ─── Year 3 ───────────────────────────────────────────────────────────────
 
         //Semester 7 - Fall (10 units)
         semesters.put("ptWinterSem7", createSemester(courseService, 7, "Fall",
-                "COMP222", "COMP256-L", "AAS100"));
+                "COMP222", "COMP256-L", "GE_F"));
 
         //Semester 8 - Winter (9 units)
         semesters.put("ptWinterSem8", createSemester(courseService, 8, "Winter",
-                "BIOL106-L"));
+                "GE_B2B3"));
 
         //Semester 9 - Spring (4 units)
         semesters.put("ptWinterSem9", createSemester(courseService, 9, "Spring",
-                "MATH262", "COMP324", "ECON101"));
+                "MATH262", "COMP324", "GE_C2"));
 
         // ─── Year 4 ───────────────────────────────────────────────────────────────
 
         //Semester 10 - Fall (10 units)
         semesters.put("ptWinterSem10", createSemester(courseService, 10, "Fall",
-                "COMP310", "MUS107", "MATH340"));
+                "COMP310", "GE_C1", "MATH340"));
 
         //Semester 11 - Spring (9 units)
         semesters.put("ptWinterSem11", createSemester(courseService, 11, "Spring",
