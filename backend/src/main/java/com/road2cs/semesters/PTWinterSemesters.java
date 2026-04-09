@@ -35,7 +35,7 @@ public class PTWinterSemesters {
 
         //Semester 6 - Spring (4 units)
         semesters.put("ptWinterSem6", createSemester(courseService, 6, "Spring",
-                "GE_B1/B3"));
+                "GE_B1B3"));
 
         // ─── Year 3 ───────────────────────────────────────────────────────────────
 
@@ -84,7 +84,7 @@ public class PTWinterSemesters {
 
         //WD - Fall
         semesters.put("ptWinterSemWD14", createSemester(courseService, 14, "Fall",
-                "COMP490-L", "COMP484", "COMP484L", "COMP429"));
+                "COMP490-L", "COMP484-L", "COMP429"));
 
         //WD - Winter
         semesters.put("ptWinterSemWD15", createSemester(courseService, 15, "Spring",

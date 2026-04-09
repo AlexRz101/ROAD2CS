@@ -25,7 +25,7 @@ public class PartTimeSemesters {
 
         //Semester 4 - Spring (11 units)
         semesters.put("ptSem4", createSemester(courseService, 4, "Spring",
-                "COMP256-L", "GE_B1/B3", "GE_C3"));
+                "COMP256-L", "GE_B1B3", "GE_C3"));
 
         //Semester 5 - Fall (11 units)
         semesters.put("ptSem5", createSemester(courseService, 5, "Fall",
@@ -65,7 +65,7 @@ public class PartTimeSemesters {
 
         //WD - Sem 11 - Fall (COMP490-L + electives)
         semesters.put("ptSemWD11", createSemester(courseService, 11, "Fall",
-                "COMP490-L", "COMP484", "COMP484L", "COMP424"));
+                "COMP490-L", "COMP484-L", "COMP424"));
 
         //WD - Sem 12 - Spring (COMP491-L + electives)
         semesters.put("ptSemWD12", createSemester(courseService, 12, "Spring",

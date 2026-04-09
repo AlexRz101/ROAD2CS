@@ -45,8 +45,7 @@ public class CourseService {
         courses.put("COMP430", new Course("COMP_ELECTIVE", "COMP 430", "Language Design and Compilers", 3));
         courses.put("COMP442", new Course("COMP_ELECTIVE", "COMP 442", "Machine Learning", 3));
         courses.put("COMP467", new Course("COMP_ELECTIVE", "COMP 467", "Multimedia Systems", 3));
-        courses.put("COMP484", new Course("COMP_ELECTIVE", "COMP 484", "Web Engineering I", 2));
-        courses.put("COMP484L", new Course("COMP_ELECTIVE", "COMP 484L", "Web Engineering I Lab", 1));
+        courses.put("COMP484-L", new Course("COMP_ELECTIVE", "COMP 484/L", "Web Engineering I and Lab ", 3));
         courses.put("COMP485", new Course("COMP_ELECTIVE", "COMP 485", "Human-Computer Interaction", 3));
         courses.put("COMP494A", new Course("COMP_ELECTIVE", "COMP 494A", "Academic Internship", 1));
         courses.put("COMP502", new Course("COMP_ELECTIVE", "COMP 502", "Programming Data Science Analytics", 3));
@@ -88,11 +87,11 @@ public class CourseService {
         courses.put("CHS115", new Course("GE_A2", "CHS 115", "Approaches to University Writing: Chicano Studies", 3));
 
         /* GE B1/B3 - Physical Science with Lab; Dynamic */
-        courses.put("CHEM101-D-L", new Course("GE_B1/B3", "CHEM 101/D/L", "Principles of Chemistry, Problem Solving and Lab", 5));
-        courses.put("GEOG101-102", new Course("GE_B1/B3", "GEOG 101/102", "The Physical Environment and Lab", 4));
-        courses.put("GEOG103-105", new Course("GE_B1/B3", "GEOG 103/105", "Physical Geography and Lab", 4));
-        courses.put("GEOL101-102", new Course("GE_B1/B3", "GEOL 101/102", "Geology of Planet Earth and Lab", 4));
-        courses.put("PHYS220A-L", new Course("GE_B1/B3", "PHYS 220A/L", "General Physics and Lab", 4));
+        courses.put("CHEM101-D-L", new Course("GE_B1B3", "CHEM 101/D/L", "Principles of Chemistry, Problem Solving and Lab", 5));
+        courses.put("GEOG101-102", new Course("GE_B1B3", "GEOG 101/102", "The Physical Environment and Lab", 4));
+        courses.put("GEOG103-105", new Course("GE_B1B3", "GEOG 103/105", "Physical Geography and Lab", 4));
+        courses.put("GEOL101-102", new Course("GE_B1B3", "GEOL 101/102", "Geology of Planet Earth and Lab", 4));
+        courses.put("PHYS220A-L", new Course("GE_B1B3", "PHYS 220A/L", "General Physics and Lab", 4));
 
         /* GE B2/B3 - Life Science with Lab: Dynamic */
         courses.put("BIOL106-L", new Course("GE_B2B3", "BIOL 106/L", "Biological Principles and Lab", 4));
@@ -126,11 +125,12 @@ public class CourseService {
         /* GE D3 + D4 courses: Fixed */
         courses.put("POLS155", new Course("GE_D3", "POLS 155", "American Political Institutions", 3));
 
-        /* GE E courses: Dynamic */
+        /* GE E courses: NO NEED, FRESHMEN COMP CLASS COVERS!!
         courses.put("HSCI131", new Course("GE_E", "HSCI 131", "Health and Society", 3));
         courses.put("FIN102", new Course("GE_E", "FIN 102", "Financial Literacy", 3));
         courses.put("COMS150", new Course("GE_E", "COMS 150", "Introduction to Communication Studies", 3));
         courses.put("CCE200", new Course("GE_E", "CCE 200", "Introduction to Civic and Community Engagement", 3));
+         */
 
         /* GE F courses: Dynamic, COMS 356 covers half the requirement */
         courses.put("AAS100", new Course("GE_F", "AAS 100", "Introduction to Asian American Studies", 3));

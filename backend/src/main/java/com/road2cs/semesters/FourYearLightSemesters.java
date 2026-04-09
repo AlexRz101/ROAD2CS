@@ -23,7 +23,7 @@ public class FourYearLightSemesters {
 
         //Semester 4 - Summer (7 units)
         semesters.put("4YearLightSem4", createSemester(courseService, 4, "Summer",
-                "PHIL230", "GE_B1/B3"));
+                "PHIL230", "GE_B1B3"));
 
         //Semester 5 - Fall (13 units)
         semesters.put("4YearLightSem5", createSemester(courseService, 5, "Fall",
@@ -59,7 +59,7 @@ public class FourYearLightSemesters {
 
         //WD - Fall (12 units)
         semesters.put("4YearLightSemWD11", createSemester(courseService, 11, "Fall",
-                "COMP490-L", "COMP484", "COMP484L", "COMP482", "COMP429"));
+                "COMP490-L", "COMP484-L", "COMP482", "COMP429"));
 
         //WD - Spring (12 units)
         semesters.put("4YearLightSemWD12", createSemester(courseService, 12, "Spring",

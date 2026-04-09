@@ -45,7 +45,7 @@ public class PTHybridSemesters {
 
         //Semester 8 - Winter (4 units)
         semesters.put("ptHybridSem8", createSemester(courseService, 8, "Winter",
-                "GE_B1/B3"));
+                "GE_B1B3"));
 
         //Semester 8 - Spring (9 units)
         semesters.put("ptHybridSem9", createSemester(courseService, 9, "Spring",
@@ -88,7 +88,7 @@ public class PTHybridSemesters {
 
         //WD - Fall (9 units)
         semesters.put("ptHybridSemWD15", createSemester(courseService, 15, "Fall",
-                "COMP490-L", "COMP484", "COMP484L", "COMP429"));
+                "COMP490-L", "COMP484-L", "COMP429"));
 
         //WD - Spring (9 units)
         semesters.put("ptHybridSemWD16", createSemester(courseService, 16, "Spring",

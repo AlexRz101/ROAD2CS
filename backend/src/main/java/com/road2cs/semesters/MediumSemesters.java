@@ -18,7 +18,7 @@ public class MediumSemesters {
 
         //Semester 3 - Fall (14 units)
         semesters.put("mediumSem3", createSemester(courseService, 3, "Fall",
-                "COMP282", "COMP222", "COMP256-L", "GE_B1/B3"));
+                "COMP282", "COMP222", "COMP256-L", "GE_B1B3"));
 
         //Semester 4 - Spring (16 units)
         semesters.put("mediumSem4", createSemester(courseService, 4, "Spring",
@@ -42,7 +42,7 @@ public class MediumSemesters {
 
         //WD Sem1 - Fall (15 units)
         semesters.put("mediumSemWD7", createSemester(courseService, 7, "Fall",
-                "COMP490-L", "COMP484", "COMP484L", "COMP429", "GEOG321", "COMP482"));
+                "COMP490-L", "COMP484-L", "COMP429", "GEOG321", "COMP482"));
 
         //WD Sem2 - Spring (15 units)
         semesters.put("mediumSemWD8", createSemester(courseService, 8, "Spring",

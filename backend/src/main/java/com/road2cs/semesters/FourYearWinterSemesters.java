@@ -34,7 +34,7 @@ public class FourYearWinterSemesters {
 
         //Semester 6 - Spring (14 units)
         semesters.put("medWinterSem6", createSemester(courseService, 6, "Spring",
-                "MATH262", "COMP256-L", "GE_A1", "GE_B1/B3"));
+                "MATH262", "COMP256-L", "GE_A1", "GE_B1B3"));
 
         // ─── Year 3 ───────────────────────────────────────────────────────────────
 
@@ -62,7 +62,7 @@ public class FourYearWinterSemesters {
 
         //WD Sem1 - Fall
         semesters.put("medWinterSemWD10", createSemester(courseService, 10, "Fall",
-                "COMP490-L", "COMP484", "COMP484L", "COMP482", "COMP440"));
+                "COMP490-L", "COMP484-L", "COMP482", "COMP440"));
 
         //WD Sem2 - Spring
         semesters.put("medWinterSemWD11", createSemester(courseService, 11, "Spring",
