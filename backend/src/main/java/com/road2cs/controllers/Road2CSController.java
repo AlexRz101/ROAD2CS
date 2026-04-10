@@ -12,9 +12,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Map;
+
 @Tag(name = "Roadmap endpoints", description = "Only controller used for Road2CS thus far")
 @RestController
-@RequestMapping("/api/roadmap")
+@RequestMapping("/api")
 public class Road2CSController {
 
     private final Road2CSService road2CSService;
@@ -26,10 +29,19 @@ public class Road2CSController {
         this.rateLimitService = rateLimitService;
     }
 
+    @Operation(summary = "Get all courses",
+            description = "Returns all courses grouped by type for GE slot selection"
+    )
+    @GetMapping("/courses")
+    public ResponseEntity<Map<String, List<CourseDTO>>> getGeOptions() {
+        Map<String, List<CourseDTO>> geOptions = road2CSService.getGeOptions();
+        return ResponseEntity.ok(geOptions);
+    }
+
     @Operation(summary = "Generate a roadmap template",
             description = "An in house template is fetched and returned to the user"
     )
-    @PostMapping
+    @PostMapping("/roadmap")
     public ResponseEntity<RoadmapResponseDTO> returnTemplate(
             @Valid @RequestBody RoadmapRequestDTO request,
             HttpServletRequest httpRequest) {

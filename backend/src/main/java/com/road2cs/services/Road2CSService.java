@@ -4,6 +4,11 @@ import com.road2cs.dtos.*;
 import com.road2cs.models.*;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /*
 Core logic of Road2CS
 This Service class handles how our templates are used, how we use the courses
@@ -13,9 +18,11 @@ How we verify checkboxes, make sure valid templates are returned, etc.
 public class Road2CSService {
 
     private final TemplateService template;
+    private final CourseService courseService;
 
-    public Road2CSService(TemplateService template) {
+    public Road2CSService(TemplateService template, CourseService courseService) {
         this.template = template;
+        this.courseService = courseService;
     }
 
     /* Helper Methods */
@@ -150,6 +157,18 @@ public class Road2CSService {
         }
 
         throw new IllegalArgumentException("Invalid template parameters");
+    }
+
+    public Map<String, List<CourseDTO>> getGeOptions() {
+        Map<String, List<CourseDTO>> geOptions = new HashMap<>();
+        for (Course course : courseService.getAllCourses()) {
+            String type = course.getCourseType();
+            if (type.startsWith("GE_")) {
+                geOptions.computeIfAbsent(type, k -> new ArrayList<>())
+                        .add(new CourseDTO(course));
+            }
+        }
+        return geOptions;
     }
 
     //Return to controller
