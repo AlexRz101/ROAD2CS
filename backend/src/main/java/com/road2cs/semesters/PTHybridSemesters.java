@@ -1,5 +1,6 @@
 package com.road2cs.semesters;
 
+import com.road2cs.models.Course;
 import com.road2cs.models.Semester;
 import com.road2cs.services.CourseService;
 
@@ -60,11 +61,11 @@ public class PTHybridSemesters {
 
         //Semester 11 - Winter (3 units)
         semesters.put("ptHybridSem11", createSemester(courseService, 11, "Winter",
-                "POLS155"));
+                "GE_D3"));
 
         //Semester 12 - Spring (9 units)
         semesters.put("ptHybridSem12", createSemester(courseService, 12, "Spring",
-                "GE_C1", "ANTH150", "COMP333"));
+                "GE_C1", "GE_D1", "COMP333"));
 
         // ─── Year 5 ───────────────────────────────────────────────────────────────
 
@@ -120,7 +121,7 @@ public class PTHybridSemesters {
 
         //Software Engineering - Fall (9 units)
         semesters.put("ptHybridSemSE15", createSemester(courseService, 15, "Fall",
-                "COMP490-L", "COMP440", "COMP424"));
+                "COMP490-L", "COMP424", "COMP424"));
 
         //Software Engineering - Spring (9 units)
         semesters.put("ptHybridSemSE16", createSemester(courseService, 16, "Spring",
@@ -131,7 +132,13 @@ public class PTHybridSemesters {
                                            String term, String... courseCodes) {
         Semester semester = new Semester(number, term);
         for (String code : courseCodes) {
-            semester.addCourse(courseService.getCourse(code));
+            Course course;
+            if (code.startsWith("GE_")) {
+                course = courseService.getRandomCourseByType(code);
+            } else {
+                course = courseService.getCourse(code);
+            }
+            semester.addCourse(course);
         }
         return semester;
     }

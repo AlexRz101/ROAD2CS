@@ -32,6 +32,14 @@ public class AppRunner implements CommandLineRunner {
         System.out.println("------------------------");
         System.out.println("Road2CS Project Baby!!!");
         System.out.println("------------------------");
+
+        //Testing Templates
+        Template fiveYearsML = templateService.getTemplate("CS-5YEAR-LIGHT-ML-2024");
+        Template fiveYearsWD = templateService.getTemplate("CS-5YEAR-LIGHT-WD-2024");
+        System.out.println("------Heavy Templates------");
+        System.out.println(fiveYearsML);
+        System.out.println(fiveYearsWD);
+        System.out.println();
 /*
         //4-Year Medium Summer Templates
         Template medSummerML = templateService.getTemplate("CS-4YEAR-MEDIUM-SUMMER-ML-2024");

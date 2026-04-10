@@ -119,18 +119,26 @@ public class CourseService {
         courses.put("HIST270", new Course("GE_C3", "HIST 270", "The United States to 1865", 3));
         courses.put("ECON175", new Course("GE_C3", "ECON 175", "Introduction to U.S. Economic History", 3));
 
-        /* GE D1 courses: Fixed, GEOG 321 and ANTH150 cover this */
+        /* GE D1 courses */
+        courses.put("AAS210", new Course("GE_D1", "AAS 210", "History of Asians in America", 3));
         courses.put("ANTH150", new Course("GE_D1", "ANTH 150", "The Human Adventure: Introduction to Anthropology", 3));
+        courses.put("ECON101", new Course("GE_D1", "ECON 101", "Economics for Everyday Life", 3));
+        courses.put("GEOG107", new Course("GE_D1", "GEOG 107", "Introduction to Human Geography", 3));
+        courses.put("HIST110", new Course("GE_D1", "HIST 110", "World History to 1500", 3));
+        courses.put("HIST111", new Course("GE_D1", "HIST 111", "World History Since 1500", 3));
+        courses.put("SOC150", new Course("GE_D1", "SOC 150", "Introductory Sociology", 3));
 
-        /* GE D3 + D4 courses: Fixed */
+        /* GE D3 + D4 courses: Dynamic */
         courses.put("POLS155", new Course("GE_D3", "POLS 155", "American Political Institutions", 3));
+        courses.put("AFRS161", new Course("GE_D3", "AFRS 161", "American Political Institutions: A Black Perspective", 3));
+        courses.put("RS255", new Course("GE_D3", "RS 255", "American Political Institutions and Religion", 3));
 
         /* GE E courses: NO NEED, FRESHMEN COMP CLASS COVERS!!
         courses.put("HSCI131", new Course("GE_E", "HSCI 131", "Health and Society", 3));
         courses.put("FIN102", new Course("GE_E", "FIN 102", "Financial Literacy", 3));
         courses.put("COMS150", new Course("GE_E", "COMS 150", "Introduction to Communication Studies", 3));
         courses.put("CCE200", new Course("GE_E", "CCE 200", "Introduction to Civic and Community Engagement", 3));
-         */
+        */
 
         /* GE F courses: Dynamic, COMS 356 covers half the requirement */
         courses.put("AAS100", new Course("GE_F", "AAS 100", "Introduction to Asian American Studies", 3));

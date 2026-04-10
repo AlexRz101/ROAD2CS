@@ -1,5 +1,6 @@
 package com.road2cs.semesters;
 
+import com.road2cs.models.Course;
 import com.road2cs.models.Semester;
 import com.road2cs.services.CourseService;
 
@@ -11,7 +12,7 @@ public class FourYearLightSemesters {
 
         //Semester 1 - Fall (12 units)
         semesters.put("4YearLightSem1", createSemester(courseService, 1, "Fall",
-                "COMP110-L", "MATH150A", "GE_A1"));
+                "COMP110-L", "MATH150A", "GE_A2"));
 
         //Semester 2 - Winter (3 units)
         semesters.put("4YearLightSem2", createSemester(courseService, 2, "Winter",
@@ -27,7 +28,7 @@ public class FourYearLightSemesters {
 
         //Semester 5 - Fall (13 units)
         semesters.put("4YearLightSem5", createSemester(courseService, 5, "Fall",
-                "COMP282", "COMP222", "COMP256-L", "POLS155"));
+                "COMP282", "COMP222", "COMP256-L", "GE_D3"));
 
         //Semester 6 - Winter (3 units)
         semesters.put("4YearLightSem6", createSemester(courseService, 6, "Winter",
@@ -39,7 +40,7 @@ public class FourYearLightSemesters {
 
         //Semester 8 - Summer (6 units)
         semesters.put("4YearLightSem8", createSemester(courseService, 8, "Summer",
-                "ANTH150", "GE_C1"));
+                "GE_D1", "GE_C1"));
 
         //Semester 9 - Fall (13 units)
         semesters.put("4YearLightSem9", createSemester(courseService, 9, "Fall",
@@ -98,10 +99,17 @@ public class FourYearLightSemesters {
                 "COMP491-L", "COMP589", "COMP583", "COMP586"));
     }
 
-    private static Semester createSemester(CourseService courseService, int number, String term, String... courseCodes) {
+    private static Semester createSemester(CourseService courseService, int number,
+                                           String term, String... courseCodes) {
         Semester semester = new Semester(number, term);
         for (String code : courseCodes) {
-            semester.addCourse(courseService.getCourse(code));
+            Course course;
+            if (code.startsWith("GE_")) {
+                course = courseService.getRandomCourseByType(code);
+            } else {
+                course = courseService.getCourse(code);
+            }
+            semester.addCourse(course);
         }
         return semester;
     }

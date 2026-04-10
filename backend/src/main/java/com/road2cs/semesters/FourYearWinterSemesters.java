@@ -1,5 +1,6 @@
 package com.road2cs.semesters;
 
+import com.road2cs.models.Course;
 import com.road2cs.models.Semester;
 import com.road2cs.services.CourseService;
 
@@ -30,7 +31,7 @@ public class FourYearWinterSemesters {
 
         //Semester 5 - Winter (3 units)
         semesters.put("medWinterSem5", createSemester(courseService, 5, "Winter",
-                "ANTH150"));
+                "GE_D1"));
 
         //Semester 6 - Spring (14 units)
         semesters.put("medWinterSem6", createSemester(courseService, 6, "Spring",
@@ -44,7 +45,7 @@ public class FourYearWinterSemesters {
 
         //Semester 8 - Winter (3 units)
         semesters.put("medWinterSem8", createSemester(courseService, 8, "Winter",
-                "POLS155"));
+                "GE_D3"));
 
         //Semester 9 - Spring (15 units)
         semesters.put("medWinterSem9", createSemester(courseService, 9, "Spring",
@@ -101,10 +102,17 @@ public class FourYearWinterSemesters {
                 "COMP491-L", "COMP586", "COMP585", "COMP583"));
     }
 
-    private static Semester createSemester(CourseService courseService, int number, String term, String... courseCodes) {
+    private static Semester createSemester(CourseService courseService, int number,
+                                           String term, String... courseCodes) {
         Semester semester = new Semester(number, term);
         for (String code : courseCodes) {
-            semester.addCourse(courseService.getCourse(code));
+            Course course;
+            if (code.startsWith("GE_")) {
+                course = courseService.getRandomCourseByType(code);
+            } else {
+                course = courseService.getCourse(code);
+            }
+            semester.addCourse(course);
         }
         return semester;
     }
