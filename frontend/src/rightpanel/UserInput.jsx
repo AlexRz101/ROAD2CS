@@ -1,14 +1,34 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function UserInput({ onSubmit }) {
 
-    const [years, setYears] = useState("4");
-    const [workload, setWorkload] = useState("medium");
-    const [field, setField] = useState("software engineering");
-    const [winter, setWinter] = useState(false); 
-    const [summer, setSummer] = useState(false);
+    const [years, setYears] = useState(() => localStorage.getItem('pref_years') || "4");
+    const [workload, setWorkload] = useState(() => localStorage.getItem('pref_workload') || "medium");
+    const [field, setField] = useState(() => localStorage.getItem('pref_field') || "software engineering");
+    const [winter, setWinter] = useState(() => localStorage.getItem('pref_winter') === "true");
+    const [summer, setSummer] = useState(() => localStorage.getItem('pref_summer') === "true");
 
     useEffect(() => {
+        const savedYears = localStorage.getItem('pref_years');
+        if (savedYears) {
+            onSubmit({
+                years: parseInt(years),
+                workload,
+                chosenField: field,
+                winter,
+                summer,
+            });
+        }
+    }, []);
+
+    const isMounted = useRef(false);
+
+    useEffect(() => {
+        if (!isMounted.current) {
+            isMounted.current = true;
+            return;
+        }
+
         if (years === "5") {
             setWorkload("light");
             setWinter(false);
@@ -66,13 +86,12 @@ export default function UserInput({ onSubmit }) {
 
     const submit = (e) => {
         e.preventDefault();
-        onSubmit({
-            years: parseInt(years),
-            workload,
-            chosenField: field,
-            winter,
-            summer
-        });
+        localStorage.setItem('pref_years', years);
+        localStorage.setItem('pref_workload', workload);
+        localStorage.setItem('pref_field', field);
+        localStorage.setItem('pref_winter', winter);
+        localStorage.setItem('pref_summer', summer);
+        onSubmit({ years: parseInt(years), workload, chosenField: field, winter, summer });
     };
 
     return (

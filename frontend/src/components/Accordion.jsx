@@ -1,26 +1,40 @@
-//Accordion component for course list
-export default function Accordion({ title, content, isExpanded, onToggle }) {
-
+export default function Accordion({ title, content, isExpanded, onToggle, swapButton }) {
     return (
-        
-        //Div for the base accordion
-        <div className={`bg-white w-36 md:w-56 rounded-lg
-            overflow-hidden transition-all duration-300 
-            shadow-md border border-gray-200 ${
-            isExpanded ? "max-h-96" : "max-h-20"
-        }`}>
+        <div
+            className={`bg-white w-36 md:w-56 rounded-lg
+                overflow-hidden transition-all duration-300 
+                shadow-md border border-gray-200 ${
+                    isExpanded ? "max-h-96" : "max-h-24"
+                }`}
+        >
+            {/* Header */}
+            <div
+                className="flex flex-col items-center px-6 pt-4 pb-2 cursor-pointer"
+                onClick={onToggle}
+            >
+                <div className="text-base font-bold text-center break-all">{title}</div>
 
-            <div className="flex justify-center items-start 
-                px-6 pt-5 pb-2 cursor-pointer" onClick={onToggle}>
-                <div className="text-base font-bold"> {title} </div>
+                {/* Swap button when collapsed */}
+                {!isExpanded && swapButton && (
+                    <div className="mt-1">{swapButton}</div>
+                )}
             </div>
 
-            {/*Div for the content within the expanded accordion */}
-            <div className={`flex justify-center overflow-hidden 
-                transition-all duration-300 whitespace-pre-line ${isExpanded ? 
-                "opacity-100" : "opacity-0"}`}>
-                <div>{content}</div>
+            {/* Expanded content */}
+            <div
+                className={`px-4 pb-3 transition-all duration-300 whitespace-pre-line ${
+                    isExpanded ? "opacity-100" : "opacity-0"
+                }`}
+            >
+                <div className="text-sm">{content}</div>
+
+                {/* Swap button when expanded */}
+                {isExpanded && swapButton && (
+                    <div className="mt-3 flex justify-center">
+                        {swapButton}
+                    </div>
+                )}
             </div>
         </div>
-    )
+    );
 }

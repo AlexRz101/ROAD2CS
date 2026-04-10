@@ -14,6 +14,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="grid grid-cols-2 md:flex gap-x-4">
+                    <a href="https://assist.org/" target="_blank" className="text-Montserrat underline hover:no-underline text-white">Assist</a>
                     <a href="https://portal.csun.edu/login" target="_blank" className="text-Montserrat underline hover:no-underline text-white">Portal</a>
                     <a href="https://canvas.csun.edu/" target="_blank" className="text-Montserrat underline hover:no-underline text-white">Canvas</a>
                     <a href="https://www.csun.edu/class-search" target="_blank" className="text-Montserrat underline hover:no-underline whitespace-nowrap text-white">Class Finder</a>
