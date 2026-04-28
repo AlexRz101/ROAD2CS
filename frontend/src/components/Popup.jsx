@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function Popup() {
+export default function Popup({ backendDown }) {
     const [show, setShow] = useState(false);
 
     useEffect(() => {
@@ -9,6 +9,11 @@ export default function Popup() {
             setShow(true);
         }
     }, []);
+
+    //Show popup if backend goes down 
+    useEffect(() => {
+        if (backendDown) setShow(true);
+    }, [backendDown]);
 
     const handleClose = () => {
         sessionStorage.setItem("popup_seen", "true");
@@ -33,10 +38,22 @@ export default function Popup() {
                     not a 1-to-1 plan for every student.
                 </p>
 
-                <p className="text-sm text-gray-600 leading-relaxed mb-5">
+                <p className="text-sm text-gray-600 leading-relaxed mb-3">
                     Your actual path may vary based on transfer credits, AP scores, repeat courses
                     and elective choices. Always verify your requirements with a counselor or your student DPR.
                 </p>
+
+                {backendDown && (
+                    <div className="bg-yellow-50 border border-yellow-300 rounded-lg px-4 py-3 mb-4">
+                        <p className="text-sm text-yellow-800 font-medium mb-1">
+                            ⚠️ Server is currently unavailable
+                        </p>
+                        <p className="text-sm text-yellow-700 leading-relaxed">
+                            Roadmap generation and GE course swapping are temporarily disabled.
+                            A sample roadmap will be shown below for reference.
+                        </p>
+                    </div>
+                )}
 
                 <button
                     onClick={handleClose}

@@ -5,4 +5,24 @@ const API = axios.create({
   headers: { 'Content-Type': 'application/json' }
 });
 
+let onBackendDown = null;
+
+export const setBackendDownHandler = (handler) => {
+  onBackendDown = handler;
+};
+
+API.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    const isNetworkError = !error.response;
+    const isServerError = error.response?.status >= 500;
+
+    if (isNetworkError || isServerError) {
+      if (onBackendDown) onBackendDown(true);
+    }
+
+    return Promise.reject(error);
+  }
+);
+
 export default API;

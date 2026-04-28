@@ -6,7 +6,7 @@ import Roadmap from './pages/Roadmap.jsx';
 import Popup from './components/Popup.jsx';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useState, useEffect } from "react";
-import API from './api/index.js';
+import API, { setBackendDownHandler } from './api/index.js';
 
 const useWindowSize = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -26,11 +26,17 @@ function App() {
   const [mobileView, setMobileView] = useState('roadmap');
   const [geOptions, setGeOptions] = useState({});
   const [geSelections, setGeSelections] = useState({});
+  const [backendDown, setBackendDown] = useState(false);
 
   const width = useWindowSize();
   const isMobile = width < 768;
   const isTablet = width >= 768 && width < 1280;
   const isDesktop = width >= 1280;
+
+  // register interceptor handler
+  useEffect(() => {
+    setBackendDownHandler(setBackendDown);
+  }, []);
 
   // load saved swaps + GE options
   useEffect(() => {
@@ -39,7 +45,7 @@ function App() {
 
     API.get('/api/courses')
       .then((res) => setGeOptions(res.data))
-      .catch((err) => console.error(err));
+      .catch(() => {});
   }, []);
 
   // initial roadmap load
@@ -54,7 +60,7 @@ function App() {
 
     API.post('/api/roadmap', defaultRequest)
       .then((res) => setRoadmapData(res.data))
-      .catch((err) => console.error(err));
+      .catch(() => {});
   }, []);
 
   // keep alive
@@ -77,7 +83,6 @@ function App() {
     setMobileView('roadmap');
   };
 
-  // ✅ SINGLE SOURCE OF PROPS (important fix)
   const roadmapProps = {
     planRequest,
     onDataLoaded: setRoadmapData,
@@ -85,7 +90,8 @@ function App() {
     geOptions,
     geSelections,
     setGeSelections,
-    isTablet
+    isTablet,
+    backendDown
   };
 
   const courseListProps = {
@@ -93,13 +99,14 @@ function App() {
     geOptions,
     geSelections,
     setGeSelections,
-    isTablet
+    isTablet,
+    backendDown
   };
 
   return (
     <HelmetProvider>
       <Helmet>
-        <title>Road2CS – CS Roadmap for CSUN Students</title>
+        <title>Road2CS - CS Roadmap for CSUN Students</title>
         <meta
           name="description"
           content="Plan your CSUN Computer Science degree with Road2CS. Visual roadmaps, course sequences, and degree planning for CS students."
@@ -107,7 +114,7 @@ function App() {
       </Helmet>
 
       <div className="flex flex-col h-screen">
-        <Popup />
+        <Popup backendDown={backendDown} />
         <Header />
 
         {/* DESKTOP */}
@@ -120,7 +127,7 @@ function App() {
 
             <div className="flex-[1.5] flex flex-col overflow-hidden">
               <div className="border-b border-gray-600 p-4">
-                <UserChoices onSubmit={setPlanRequest} />
+                <UserChoices onSubmit={setPlanRequest} backendDown={backendDown} />
               </div>
 
               <div className="flex-1 overflow-y-auto p-4">
@@ -136,7 +143,7 @@ function App() {
           <div className="flex flex-col flex-1 overflow-auto">
 
             <div className="border-b border-gray-600 p-4">
-              <UserChoices onSubmit={handleSubmit} />
+              <UserChoices onSubmit={handleSubmit} backendDown={backendDown} />
             </div>
 
             <div className="flex border-b border-gray-600">
@@ -181,7 +188,7 @@ function App() {
           <div className="flex flex-col flex-1 overflow-auto">
 
             <div className="border-b border-gray-600 p-4">
-              <UserChoices onSubmit={handleSubmit} />
+              <UserChoices onSubmit={handleSubmit} backendDown={backendDown} />
             </div>
 
             <div className="flex border-b border-gray-600">
