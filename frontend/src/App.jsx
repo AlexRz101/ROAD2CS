@@ -21,7 +21,14 @@ const useWindowSize = () => {
 };
 
 function App() {
-  const [planRequest, setPlanRequest] = useState(null);
+  const [planRequest, setPlanRequest] = useState({
+    years: 4,
+    workload: "medium",
+    chosenField: "software engineering",
+    winter: false,
+    summer: false
+  });
+
   const [roadmapData, setRoadmapData] = useState(null);
   const [mobileView, setMobileView] = useState('roadmap');
   const [geOptions, setGeOptions] = useState({});
@@ -33,12 +40,17 @@ function App() {
   const isTablet = width >= 768 && width < 1280;
   const isDesktop = width >= 1280;
 
-  // register interceptor handler
+  //Register interceptor handler
   useEffect(() => {
     setBackendDownHandler(setBackendDown);
   }, []);
 
-  // load saved swaps + GE options
+  //Clear roadmap data when backend goes down so placeholder kicks in
+  useEffect(() => {
+    if (backendDown) setRoadmapData(null);
+  }, [backendDown]);
+
+  //Load saved swaps + GE options
   useEffect(() => {
     const saved = localStorage.getItem('geSelections');
     if (saved) setGeSelections(JSON.parse(saved));
@@ -48,20 +60,14 @@ function App() {
       .catch(() => {});
   }, []);
 
-  // initial roadmap load
+  //Fetch roadmap on submit
   useEffect(() => {
-    const defaultRequest = {
-      years: 4,
-      workload: "medium",
-      chosenField: "software engineering",
-      winter: false,
-      summer: false
-    };
+    if (!planRequest || backendDown) return;
 
-    API.post('/api/roadmap', defaultRequest)
+    API.post('/api/roadmap', planRequest)
       .then((res) => setRoadmapData(res.data))
       .catch(() => {});
-  }, []);
+  }, [planRequest, backendDown]);
 
   // keep alive
   useEffect(() => {
@@ -171,13 +177,8 @@ function App() {
             </div>
 
             <div className="flex-1 overflow-auto p-4">
-              {mobileView === 'roadmap' && (
-                <Roadmap {...roadmapProps} />
-              )}
-
-              {mobileView === 'courses' && (
-                <CourseList {...courseListProps} />
-              )}
+              {mobileView === 'roadmap' && <Roadmap {...roadmapProps} />}
+              {mobileView === 'courses' && <CourseList {...courseListProps} />}
             </div>
 
           </div>
@@ -216,13 +217,8 @@ function App() {
             </div>
 
             <div className="flex-1 overflow-auto p-2">
-              {mobileView === 'roadmap' && (
-                <Roadmap {...roadmapProps} />
-              )}
-
-              {mobileView === 'courses' && (
-                <CourseList {...courseListProps} />
-              )}
+              {mobileView === 'roadmap' && <Roadmap {...roadmapProps} />}
+              {mobileView === 'courses' && <CourseList {...courseListProps} />}
             </div>
 
           </div>
